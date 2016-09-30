@@ -1,14 +1,16 @@
 # CS319 project of group20
 
 ###project description:
-(to be filled later today)
+<p>(to be filled later today)</p>
 
 ###group members:
-*Afra Dömeke
-*İlteber Ayvacı
-*Tuğberk Topallar
-*Utku Oyman
+<ul>
+  <li>Afra Dömeke</li>
+  <li>İlteber Ayvacı</li>
+  <li>Tuğberk Topallar</li>
+  <li>Utku Oyman</li>
+</ul>
 
-###
-meeting times: 
-every tuesday 16.00
+###meeting times: 
+<p>every tuesday 16.00</p>
+
