@@ -5,10 +5,10 @@
 
 ###group members:
 <ul>
-  <li>Afra Dömeke</li>
-  <li>İlteber Ayvacı</li>
-  <li>Tuğberk Topallar</li>
-  <li>Utku Oymak</li>
+  <li>Afra Dömeke - 21300884 </li>
+  <li>İlteber Ayvacı - 21301365 </li>
+  <li>Tuğberk Topallar - 21301366 </li>
+  <li>Utku Oymak - 21400883 </li>
 </ul>
 
 ###meeting times: 
