@@ -8,7 +8,7 @@
   <li>Afra Dömeke</li>
   <li>İlteber Ayvacı</li>
   <li>Tuğberk Topallar</li>
-  <li>Utku Oyman</li>
+  <li>Utku Oymak</li>
 </ul>
 
 ###meeting times: 
