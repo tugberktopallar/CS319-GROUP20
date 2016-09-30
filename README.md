@@ -1,7 +1,7 @@
 # CS319 project of group20
 
 ###project description:
-<p>(to be filled later today)</p>
+<p>We will be doing a text based rpg game like the famous game zork. Base game mechanics will be very similiar to zork(like how you move your character or how you fight monsters and such) but the story, actual fights and the design of the game will be different. So basicly we will be building a game in the same genre as zork.</p>
 
 ###group members:
 <ul>
