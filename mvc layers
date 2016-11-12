@@ -1,0 +1,17 @@
+1.1.	Architectural Styles
+1.1.1.	 Layers
+	In our system decomposition we decomposed our game logic into three layers.
+  With this three layer system, all layers at the same level can depend on only
+  layers which are one below of the current layer. We prefer three layers to provide
+  maintability and flexibility to our program.
+ 	2.2.2 Model View Controller
+	We classify subsystems into three parts, called model, view and controller. 
+  We add a controller part between the domain knowledge and the user interface 
+  and we are able to separate the domain knowledge from the user interface.  
+  Here, the domain objects of our system is only accessed and controlled by 
+  manager classes which are grouped under Game Driver layer.  Under this,
+  main subsystems exist that interacts with both users and system. Below the 
+  main subsystem layer, small subsystems are exist. They will be used for 
+  providing features to the main subsystems. With the MVC system, we can 
+  ensure that changes made on the interfaces will not affect the model of 
+  the system, therefore it is a good idea to use MVC for our game. 
