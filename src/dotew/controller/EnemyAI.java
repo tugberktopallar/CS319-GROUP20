@@ -10,7 +10,7 @@ public class EnemyAI {
 	
 	//Constructor
 	public EnemyAI(CCharacter currentCharacter, Player player) {
-		super();
+		
 		this.currentCharacter = currentCharacter;
 		this.player = player;
 	}

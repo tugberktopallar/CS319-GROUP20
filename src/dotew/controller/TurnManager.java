@@ -10,11 +10,12 @@ public class TurnManager {
 	private CCharacter currentCharacter;
 	
 	//Constructor
-	public TurnManager(ArrayList characterList, int turn, CCharacter currentCharacter) {
-		super();
+	public TurnManager(ArrayList characterList) {
+		
 		this.characterList = characterList;
-		this.turn = turn;
-		this.currentCharacter = currentCharacter;
+		this.turn = 0;
+		
+		this.currentCharacter = (CCharacter) characterList.get(0);
 	}
 	
 	

@@ -15,9 +15,11 @@ public class BattleManager {
 	
 	//Constructor
 	
+	
+	
 	public BattleManager(BattleMap currentBattleMap, ArrayList characterList, TurnManager turnManager,
 			EnemyAI enemyAI) {
-		super();
+		
 		this.currentBattleMap = currentBattleMap;
 		this.characterList = characterList;
 		this.turnManager = turnManager;
@@ -27,7 +29,13 @@ public class BattleManager {
 	
 	// Methods
 	public void giveExp(){
-		//TODO
+		int totalExp = 0;
+		
+		for (int i = 1; i < getCharacterList().size(); i++) {
+			totalExp += ((CCharacter) getCharacterList().get(i)).getExpPointValue();
+		}
+		
+		getCharacterList().get(0).addExp(totalExp);
 	}
 	
 	
@@ -36,33 +44,54 @@ public class BattleManager {
 		return false;
 	}
 	
-	public void startBattle(){
+	public void startBattle(BattleMap map){
+		setCurrentBattleMap(map);
+		createTurnManager(map.getCharacterList());
+		
 		//TODO
 	}
 	
 	public boolean isEnemiesDead(){
-		//TODO
-		return false;
+		for (int i = 1; i < getCharacterList().size(); i++) {
+			if(!getCharacterList().get(i).isDead()){
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public void endBattle(){
+		giveBattleRewards(getCharacterList());
+		setTurnManager(null);
+		getCharacterList().get(0).clearStatusAffects();
 		//TODO
 	}
 	
 	public void applySkill(CCharacter c1, CCharacter c2, Skill s){
-		//TODO
+		c1.useSkill(c2,s);
+		
 	}
 	
 	private void createTurnManager(ArrayList characterList){
-		//TODO
+		TurnManager tm = new TurnManager(characterList);
+		setTurnManager(tm);
 	}
 	
 	public void giveBattleRewards(ArrayList characterList){
+		giveExp();
+		ArrayList rewards = new ArrayList();
+		for (int i = 1; i < getCharacterList().size(); i++) {
+			for (int j = 0; j < getCharacterList().get(0).getDroppableItems().length; j++) {
+				rewards.add(getCharacterList().get(0).getDroppableItems()[j]);
+			}
+			
+		}
 		//TODO
 	}
 	
 	public void passTurn(){
-		//TODO
+		getTurnManager().passTurn();
+		
 	}
 	
 	public void attack(CCharacter c1, CCharacter c2){
