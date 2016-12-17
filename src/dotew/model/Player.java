@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import dotew.model.Inventory;
 
 public class Player extends CCharacter{
-	private Inventory inventoryy;
+	private Inventory inventory;
 	private int level;
 	private int expPoints;
 	private ArrayList<Item> equipments;
@@ -16,7 +16,7 @@ public class Player extends CCharacter{
 	
 	private Player(){
 		super();
-		inventoryy = new Inventory();
+		inventory = new Inventory();
 		level=1;
 		expPoints = 0;
 		equipments = new ArrayList<Item>();
@@ -68,7 +68,7 @@ public class Player extends CCharacter{
 		String typeToBe,typeCurrently;
 		boolean equipped = false;
 		//if the given item is on inventory
-		if(inventoryy.contains(toBeEquipped)){
+		if(inventory.contains(toBeEquipped)){
 			typeToBe = toBeEquipped.getType();
 			//checking if player has equipment with given type. If so we'll remove the old item and add the new item
 			//from inventory
@@ -93,10 +93,10 @@ public class Player extends CCharacter{
 			
 	}
 	public void displayInventory(){
-		System.out.println(inventoryy);
+		System.out.println(inventory);
 	}
 	public Item findItem(String itemName){
-		for(Item it: inventoryy){
+		for(Item it: inventory){
 			if(it.getName().equalsIgnoreCase(itemName))
 				return it;
 		}
