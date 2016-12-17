@@ -86,12 +86,17 @@ public class BattleManager {
 			}
 			
 		}
-		//TODO
+		
 	}
 	
 	public void passTurn(){
 		getTurnManager().passTurn();
-		
+		while((getTurnManager().getTurn() % getCharacterList().size()) != 0){
+			getEnemyAI().setCurrentCharacter(getTurnManager().getCurrentCharacter());
+			getEnemyAI().playTurn();
+			getTurnManager().passTurn();
+		}
+	
 	}
 	
 	public void attack(CCharacter c1, CCharacter c2){

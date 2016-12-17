@@ -21,12 +21,20 @@ public class TurnManager {
 	
 	//Methods
 	public boolean applyStatusAffects(){
-		//TODO
-		return false;
+		
+		return getCurrentCharacter().applyStatusAffects();
 	}
 	
 	public void passTurn(){
-		//TODO
+		
+			setTurn(getTurn() + 1);
+			
+			setCurrentCharacter((CCharacter) getCharacterList().get(getTurn() % getCharacterList().size()));
+			
+			applyStatusAffects();
+			
+		
+		
 	}
 	
 	
