@@ -1,13 +1,13 @@
 package dotew.model;
 
 import java.util.ArrayList;
-	public class CCharacter {
+	public class CCharacter  {
 		// stats[0] = Strength , stats[1] = Intelligence
 		// stats[2] = Dexterity, stats[3] = Constitution
 		//Class yok ClassGame var.
 		private int []stats;
 		private int health,stamina,mana;
-		private TerrainCell Dexterity;
+		private TerrainCell tCell;
 		private ClassGame classOfCharacter;
 		private ArrayList<TemporaryEffects> tempEffectList;
 		private Zone currentZone;
