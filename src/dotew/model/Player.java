@@ -73,7 +73,7 @@ public class Player extends CCharacter{
 			//checking if player has equipment with given type. If so we'll remove the old item and add the new item
 			//from inventory
 			for(int i = 0; i < equipments.size()&& !equipped; i++){
-				eq = equipments.get(i);
+				Item eq = equipments.get(i);
 				typeCurrently = eq.getType();
 				if(typeCurrently.equalsIgnoreCase(typeToBe)){
 					equipments.remove(eq);
