@@ -16,7 +16,7 @@ public class Player extends CCharacter{
 	
 	private Player(){
 		super();
-		inventory = new Inventory();
+		inventoryy = new Inventory();
 		level=1;
 		expPoints = 0;
 		equipments = new ArrayList<Item>();
