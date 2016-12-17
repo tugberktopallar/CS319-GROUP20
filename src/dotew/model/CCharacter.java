@@ -77,8 +77,9 @@ import java.util.ArrayList;
 		{
 			//TODO
 		}
-		public void applyTemporaryEffects(){
+		public boolean applyTemporaryEffects(){
 			//TODO
+			return false;
 		}
 		public void normalAttack(CCharacter c1)
 		{

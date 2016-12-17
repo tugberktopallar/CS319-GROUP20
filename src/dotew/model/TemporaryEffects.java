@@ -3,7 +3,8 @@ package dotew.model;
 import dotew.model.CCharacter;
 
 public abstract class TemporaryEffects {
-	private int duration; //Timer mý koysak buraya?
+	private int duration; //Timer mý koysak buraya? No :D
+	
 	
 	abstract boolean applyEffect(CCharacter c1);
 	

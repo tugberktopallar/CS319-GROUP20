@@ -32,10 +32,10 @@ public class BattleManager {
 		int totalExp = 0;
 		
 		for (int i = 1; i < getCharacterList().size(); i++) {
-			totalExp += ((CCharacter) getCharacterList().get(i)).getExpPointValue();
+			totalExp += ((Enemy) getCharacterList().get(i)).getExpPointValue();
 		}
 		
-		getCharacterList().get(0).addExp(totalExp);
+		((Player) getCharacterList().get(0)).addExp(totalExp);
 	}
 	
 	
@@ -63,7 +63,7 @@ public class BattleManager {
 	public void endBattle(){
 		giveBattleRewards(getCharacterList());
 		setTurnManager(null);
-		getCharacterList().get(0).clearStatusAffects();
+		((Player) getCharacterList().get(0)).clearStatusAffects();
 		//TODO
 	}
 	

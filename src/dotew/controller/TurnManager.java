@@ -22,7 +22,7 @@ public class TurnManager {
 	//Methods
 	public boolean applyStatusAffects(){
 		
-		return getCurrentCharacter().applyStatusAffects();
+		return getCurrentCharacter().applyTemporaryEffects();
 	}
 	
 	public void passTurn(){
@@ -32,8 +32,6 @@ public class TurnManager {
 			setCurrentCharacter((CCharacter) getCharacterList().get(getTurn() % getCharacterList().size()));
 			
 			applyStatusAffects();
-			
-		
 		
 	}
 	

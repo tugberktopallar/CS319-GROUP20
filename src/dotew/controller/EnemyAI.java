@@ -1,5 +1,7 @@
 package dotew.controller;
 
+import java.awt.Point;
+
 import dotew.model.CCharacter;
 import dotew.model.Player;
 import dotew.model.Skill;
@@ -18,12 +20,19 @@ public class EnemyAI {
 	
 	//Methods
 	public void playTurn(){
+		//Get enemy name from definitions
+		//use switch case for different enemies
+		//cases
+		//try to use skill if possible
+		//try to normal attack
+		//if out of range find the closest path and move closer
 		//TODO
 	}
 	
 	public boolean checkSkillRestrictions(Skill s){
-		//TODO
-		return false;
+		
+		return (getCurrentCharacter().getMapCell().getPoint().distance(getPlayer().getMapCell().getPoint())) <= s.getRestriction();
+		
 	}
 	
 	
