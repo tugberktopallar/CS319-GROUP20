@@ -1,13 +1,13 @@
 package dotew.model;
 
 import java.util.ArrayList;
-	public class CCharacter {
+	public abstract class CCharacter {
 		// stats[0] = Strength , stats[1] = Intelligence
 		// stats[2] = Dexterity, stats[3] = Constitution
 		//Class yok ClassGame var.
 		private int []stats;
 		private int health,stamina,mana;
-		private TerrainCell Dexterity;
+		private TerrainCell mapCell;
 		private ClassGame classOfCharacter;
 		private ArrayList<TemporaryEffects> tempEffectList;
 		private Zone currentZone;
@@ -68,11 +68,11 @@ import java.util.ArrayList;
 			/* else if(health>0)
 				health = */
 		}
-		public void useSkill(CCharacter s1, Skill s1)
+		public void useSkill(CCharacter c1, Skill s1)
 		{
 			//TODO
 		}
-		public void applyTemporaryEffects(CCharacter c1){
+		public void applyTemporaryEffects(){
 			//TODO
 		}
 		public void normalAttack(CCharacter c1)
@@ -111,11 +111,11 @@ import java.util.ArrayList;
 		public void setMana(int mana) {
 			this.mana = mana;
 		}
-		public TerrainCell getDexterity() {
-			return Dexterity;
+		public TerrainCell getMapCell() {
+			return mapCell;
 		}
-		public void setDexterity(TerrainCell dexterity) {
-			Dexterity = dexterity;
+		public void setMapCell(TerrainCell mapCell) {
+			this.mapCell = mapCell;
 		}
 		public ClassGame getClassOfCharacter() {
 			return classOfCharacter;
@@ -147,6 +147,7 @@ import java.util.ArrayList;
 		public void setAttackDamage(double attackDamage) {
 			this.attackDamage = attackDamage;
 		}
+	
 		
 	}
 

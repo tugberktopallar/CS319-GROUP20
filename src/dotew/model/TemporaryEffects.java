@@ -7,6 +7,7 @@ public class TemporaryEffects {
 	
 	public boolean applyEffect(CCharacter c1){
 		//TODO
+		return false;
 	}
 	
 }

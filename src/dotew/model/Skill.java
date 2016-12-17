@@ -8,8 +8,9 @@ public class Skill {
 	TemporaryEffects tempEffect;
 	boolean coolDownStatus;
 	//String [] Restrictions;
-	boolean applySkill(CCharacter c1,CCharacter c2){
+	public boolean applySkill(CCharacter c1,CCharacter c2){
 		
 		//TODO
+		return false;
 	}
 }
