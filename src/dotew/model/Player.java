@@ -28,7 +28,7 @@ public class Player extends CCharacter{
 		// playerx
 	}
 	public void clearAllStatusEffects(){
-		super.getTempEffectList().clear();
+		getTempEffectList().clear();
 	}
 	public void changeTemporaryStat(String stat, int amount){
 		if(stat.equalsIgnoreCase("Strength"))
