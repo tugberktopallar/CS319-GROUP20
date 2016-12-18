@@ -15,7 +15,7 @@ import java.util.Iterator;
 		private TerrainCell mapCell;
 
 		private ClassGame classOfCharacter;
-		private ArrayList<TemporaryEffects> tempEffectList;
+		private ArrayList<TemporaryEffect> tempEffectList;
 		private Zone currentZone;
 		private double armorValue,attackDamage;
 		
@@ -37,17 +37,17 @@ import java.util.Iterator;
 		public void increaseOrDecreaseConstitution(int n){
 			stats[3] += n;
 		}
-		public void addTemporaryEffect(TemporaryEffects temp){
+		public void addTemporaryEffect(TemporaryEffect temp){
 			if(tempEffectList != null)
 			{
 				tempEffectList.add(temp);
 			}
 			else{
-				tempEffectList = new ArrayList<TemporaryEffects>();
+				tempEffectList = new ArrayList<TemporaryEffect>();
 				tempEffectList.add(temp);
 			}
 		}
-		public void deleteTemporaryEffect(TemporaryEffects tempy){
+		public void deleteTemporaryEffect(TemporaryEffect tempy){
 			if(tempEffectList.contains(tempy))
 				tempEffectList.remove(tempy);
 			else
@@ -80,7 +80,7 @@ import java.util.Iterator;
 		}
 		public boolean applyTemporaryEffects(){
 			//TODO
-			for (TemporaryEffects temporaryEffects : tempEffectList) {
+			for (TemporaryEffect temporaryEffects : tempEffectList) {
 				temporaryEffects.applyEffect(this);
 			}
 			return true;
@@ -126,6 +126,22 @@ import java.util.Iterator;
 		
 		
 		//Getters and Setters
+		public int getStr(){
+			return stats[0];
+		}
+		
+		public int getInt(){
+			return stats[1];
+		}
+		
+		public int getDex(){
+			return stats[2];
+		}
+		
+		public int getConst(){
+			return stats[3];
+		}
+		
 		public int[] getStats() {
 			return stats;
 		}
@@ -162,10 +178,10 @@ import java.util.Iterator;
 		public void setClassOfCharacter(ClassGame classOfCharacter) {
 			this.classOfCharacter = classOfCharacter;
 		}
-		public ArrayList<TemporaryEffects> getTempEffectList() {
+		public ArrayList<TemporaryEffect> getTempEffectList() {
 			return tempEffectList;
 		}
-		public void setTempEffectList(ArrayList<TemporaryEffects> tempEffectList) {
+		public void setTempEffectList(ArrayList<TemporaryEffect> tempEffectList) {
 			this.tempEffectList = tempEffectList;
 		}
 		public Zone getCurrentZone() {

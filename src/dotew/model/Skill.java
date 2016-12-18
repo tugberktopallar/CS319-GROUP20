@@ -1,12 +1,12 @@
 package dotew.model;
 
 import dotew.model.CCharacter;
-import dotew.model.TemporaryEffects;
+import dotew.model.TemporaryEffect;
 
 public abstract class Skill {
-	String name;
-	TemporaryEffects tempEffect;
-	double Restriction;
+	private String name;
+	private TemporaryEffect tempEffect;
+	private double Restriction;
 	
 	public String getName() {
 		return name;
@@ -16,11 +16,11 @@ public abstract class Skill {
 		this.name = name;
 	}
 
-	public TemporaryEffects getTempEffect() {
+	public TemporaryEffect getTempEffect() {
 		return tempEffect;
 	}
 
-	public void setTempEffect(TemporaryEffects tempEffect) {
+	public void setTempEffect(TemporaryEffect tempEffect) {
 		this.tempEffect = tempEffect;
 	}
 
