@@ -1,6 +1,7 @@
 package dotew.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 	public abstract class CCharacter {
 
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 			return false;
 		}
 		public void increaseOrDecreaseStrength(int n){
-			stats[0] += n;
+	 		stats[0] += n;
 		}
 		public void increaseOrDecreaseIntelligence(int n){
 			stats[1] += n;
@@ -73,17 +74,20 @@ import java.util.ArrayList;
 			/* else if(health>0)
 				health = */
 		}
-		public void useSkill(CCharacter c1, Skill s1)
+		public void useSkill(CCharacter c2, Skill s1)
 		{
-			//TODO
+			s1.applySkill(this, c2);
 		}
 		public boolean applyTemporaryEffects(){
 			//TODO
-			return false;
+			for (TemporaryEffects temporaryEffects : tempEffectList) {
+				temporaryEffects.applyEffect(this);
+			}
+			return true;
 		}
 		public void normalAttack(CCharacter c1)
 		{
-			int attackPoint = (int)(Math.round(attackDamage)-c1.getArmorValue());
+			int attackPoint = (int)(Math.round(this.attackDamage)-c1.getArmorValue());
 			if(attackPoint>0)
 				c1.increaseOrDecreaseHealth((-attackPoint));
 			/*
@@ -93,6 +97,35 @@ import java.util.ArrayList;
 			 * }
 			 */
 		}
+		
+		// Bunlarin katsayisi degisebilir ilerde *10 olmak zorunda degil
+		//Calculate HP
+		public int calculateMaxHP(){
+			return this.stats[3] * 10;
+		}
+		public void setMaxHP(){
+			setHealth(calculateMaxHP());
+		}
+		
+		//Calculate Stamina
+		public int calculateMaxStamina(){
+			return this.stats[2] * 10;
+		}
+		public void setMaxStamina(){
+			setStamina(calculateMaxStamina());
+		}
+		
+		//Calculate Mana
+		public int calculateMaxMana(){
+			return this.stats[3] * 10;
+		}
+		public void setMaxMana(){
+			setMana(calculateMaxMana());
+		}
+		
+		
+		
+		//Getters and Setters
 		public int[] getStats() {
 			return stats;
 		}
