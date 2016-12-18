@@ -10,10 +10,14 @@ public class Warrior2Skill extends Skill {
 
 	@Override
 	public boolean applySkill(CCharacter c1, CCharacter c2) {
+		if(c1.getStamina() < 20){
+			return false;
+		}
+		
 		int damage = (int) (c1.getAttackDamage() * 3) ;
-		c2.increaseOrDecreaseHealth(damage);
-		c1.increaseOrDecreaseStamina(20);
-		return false;
+		c2.increaseOrDecreaseHealth(-damage);
+		c1.increaseOrDecreaseStamina(-20);
+		return true;
 	}
 
 }

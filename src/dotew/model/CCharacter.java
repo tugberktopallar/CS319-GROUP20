@@ -202,6 +202,10 @@ import java.util.Iterator;
 		public void setAttackDamage(double attackDamage) {
 			this.attackDamage = attackDamage;
 		}
+		public double getWeaponDamage() {
+			// TODO weapons damage need Item class
+			return 0;
+		}
 	
 		
 	}

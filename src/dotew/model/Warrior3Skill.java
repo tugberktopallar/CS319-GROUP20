@@ -10,7 +10,7 @@ public class Warrior3Skill extends Skill {
 
 	@Override
 	public boolean applySkill(CCharacter c1, CCharacter c2) {
-		// TODO Auto-generated method stub
+		// TODO reactive skill
 		return false;
 	}
 
