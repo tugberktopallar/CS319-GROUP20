@@ -93,7 +93,8 @@ public class Player extends CCharacter{
 			
 	}
 	public void displayInventory(){
-		System.out.println(inventory);
+//		System.out.println(inventory);
+		//TODO o konsol bu konsol degil abi. compilerin konsolunu kullanmiyoruz!!!!
 	}
 	public Item findItem(String itemName){
 		for(Item it: inventory){

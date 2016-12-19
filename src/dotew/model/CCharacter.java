@@ -10,15 +10,15 @@ import java.util.Iterator;
 		// stats[2] = Dexterity, stats[3] = Constitution
 		//Class yok ClassGame var.
 		private int []stats;
-		private int health,stamina,mana;
-
+		private int health,stamina,mana,regenHp,regenMana,regenStamina;
 		private TerrainCell mapCell;
-
 		private ClassGame classOfCharacter;
 		private ArrayList<TemporaryEffect> tempEffectList;
 		private Zone currentZone;
 		private double armorValue,attackDamage;
 		
+		
+		//Methods
 		public boolean isDead(){
 			if(health <= 0){
 				return true;
@@ -123,9 +123,41 @@ import java.util.Iterator;
 			setMana(calculateMaxMana());
 		}
 		
+		public void updateRegenValues(){
+			setRegenHp(getConst()/5);
+			setRegenMana(getInt()/2);
+			setRegenStamina(getDex()/2);
+		}
+		
+		public void endTurnRegen(){
+			increaseOrDecreaseHealth(this.regenHp);
+			increaseOrDecreaseMana(this.regenMana);
+			increaseOrDecreaseStamina(this.regenStamina);
+		}
+		
 		
 		
 		//Getters and Setters
+		
+		public int getRegenHp() {
+			return regenHp;
+		}
+		public void setRegenHp(int regenHp) {
+			this.regenHp = regenHp;
+		}
+		public int getRegenMana() {
+			return regenMana;
+		}
+		public void setRegenMana(int regenMana) {
+			this.regenMana = regenMana;
+		}
+		public int getRegenStamina() {
+			return regenStamina;
+		}
+		public void setRegenStamina(int regenStamina) {
+			this.regenStamina = regenStamina;
+		}
+		
 		public int getStr(){
 			return stats[0];
 		}

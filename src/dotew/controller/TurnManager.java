@@ -29,9 +29,11 @@ public class TurnManager {
 		
 			setTurn(getTurn() + 1);
 			
+			getCurrentCharacter().endTurnRegen(); // When a character ends turn it gets its regeneragation
 			setCurrentCharacter((CCharacter) getCharacterList().get(getTurn() % getCharacterList().size()));
 			
 			applyStatusAffects();
+			
 		
 	}
 	
