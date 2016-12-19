@@ -1,11 +1,13 @@
 package dotew.model;
 
+import java.util.ArrayList;
+
 public class BattleMap extends Map{
 	
 	private Player player;
-	private Enemy[] enemies; //enemies class not implemented yet
+	private Enemy[] enemies;
 
-	public BattleMap(TerrainCell[] terrainCellList, CCharacter[] characterList, Player player, Enemy[] enemies){
+	public BattleMap(TerrainCell[][] terrainCellList, ArrayList <CCharacter> characterList, Player player, Enemy[] enemies){
 		super(terrainCellList, characterList);
 		this.player = player;
 		this.enemies = enemies;

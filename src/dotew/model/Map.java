@@ -1,10 +1,13 @@
 package dotew.model;
 
+import java.util.ArrayList;
+
+
 public abstract class Map {
-	private TerrainCell[] terrainCellList;
-	private CCharacter[] characterList;
+	private TerrainCell[][] terrainCellList;
+	private ArrayList <CCharacter> characterList;
 	
-	public Map(TerrainCell[] terrainCellList, CCharacter[] characterList){
+	public Map(TerrainCell[][] terrainCellList, ArrayList <CCharacter> characterList){
 		this.terrainCellList = 	terrainCellList;
 		this.characterList = characterList;
 	}
@@ -14,20 +17,20 @@ public abstract class Map {
 	}
 
 	//gets
-	public TerrainCell[] getTerrainCellList(){
+	public TerrainCell[][] getTerrainCellList(){
 		return terrainCellList;
 	}
 	
-	public CCharacter[] getCharacterList(){
+	public ArrayList <CCharacter> getCharacterList(){
 		return characterList;
 	}
 	
 	//sets
-	public void setCharacterList(TerrainCell[] terrainCellList){
+	public void setCharacterList(TerrainCell[][] terrainCellList){
 		this.terrainCellList = terrainCellList;
 	}
 	
-	public void setTerrainCellList(CCharacter[] characterList){
+	public void setTerrainCellList(ArrayList <CCharacter> characterList){
 		this.characterList = characterList;
 	}
 }
