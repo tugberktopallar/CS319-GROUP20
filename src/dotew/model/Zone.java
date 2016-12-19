@@ -20,6 +20,7 @@ public class Zone extends Map {
 	
 	@Override
 	public void draw(){
+		super.draw();
 		//gui
 	}
 }

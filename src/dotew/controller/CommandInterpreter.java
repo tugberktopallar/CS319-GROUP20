@@ -18,14 +18,17 @@ public class CommandInterpreter {
 	}
 	
 	public boolean checkSyntax(String command){
+		return false;
 		// TODO
 	}
 	
 	public String matchCommand(String str){
+		return str;
 		// TODO
 	}
 	
 	public String getCommandFrmTextBox(){
+		return currentCommand;
 		// TODO
 		
 	}

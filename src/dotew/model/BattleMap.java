@@ -3,9 +3,9 @@ package dotew.model;
 public class BattleMap extends Map{
 	
 	private Player player;
-	private Enemies[] enemies; //enemies class not implemented yet
+	private Enemy[] enemies; //enemies class not implemented yet
 
-	public BattleMap(TerrainCell[] terrainCellList, CCharacter[] characterList, Player player, Enemies[] enemies){
+	public BattleMap(TerrainCell[] terrainCellList, CCharacter[] characterList, Player player, Enemy[] enemies){
 		super(terrainCellList, characterList);
 		this.player = player;
 		this.enemies = enemies;
@@ -15,7 +15,7 @@ public class BattleMap extends Map{
 		return player;
 	}
 	
-	public Enemies[] getEnemies(){
+	public Enemy[] getEnemies(){
 		return enemies;
 	}
 	
@@ -23,12 +23,13 @@ public class BattleMap extends Map{
 		this.player = player;
 	}
 	
-	public void setEnemies(Enemies[] enemies){
+	public void setEnemies(Enemy[] enemies){
 		this.enemies = enemies;
 	}
 	
 	@Override
 	public void draw(){
+		super.draw();
 		//gui
 	}
 

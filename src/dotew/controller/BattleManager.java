@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import dotew.model.BattleMap;
 import dotew.model.CCharacter;
+import dotew.model.Enemy;
+import dotew.model.Player;
 import dotew.model.Skill;
 
 public class BattleManager {
