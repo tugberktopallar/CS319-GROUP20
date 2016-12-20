@@ -27,6 +27,24 @@ public class Player extends CCharacter{
 		expRequirements= new int[4]; //4 level olsun?
 		// playerx
 	}
+	public ArrayList<Quest> getUnfinishedQuests() {
+		return unfinishedQuests;
+	}
+	public void setUnfinishedQuests(ArrayList<Quest> unfinishedQuests) {
+		this.unfinishedQuests = unfinishedQuests;
+	}
+	public ArrayList<Quest> getActiveQuests() {
+		return activeQuests;
+	}
+	public void setActiveQuests(ArrayList<Quest> activeQuests) {
+		this.activeQuests = activeQuests;
+	}
+	public ArrayList<Quest> getFinishedQuests() {
+		return finishedQuests;
+	}
+	public void setFinishedQuests(ArrayList<Quest> finishedQuests) {
+		this.finishedQuests = finishedQuests;
+	}
 	public void clearAllStatusEffects(){
 		getTempEffectList().clear();
 	}
@@ -131,6 +149,7 @@ public class Player extends CCharacter{
 	}
 	
 }
+
 
 
 }
