@@ -9,6 +9,11 @@ public class Inventory {
 		this.itemList = itemList;
 		this.currentWeight = currentWeight;
 	}
+	public Inventory(){
+		weightLimit = 0;
+		itemList = new ArrayList<Item>();
+		currentWeight = 0;
+	}
 	private void draw(){
 		//TODO
 	}

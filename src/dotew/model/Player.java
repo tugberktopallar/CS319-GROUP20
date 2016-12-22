@@ -86,7 +86,7 @@ public class Player extends CCharacter{
 		String typeToBe,typeCurrently;
 		boolean equipped = false;
 		//if the given item is on inventory
-		if(inventory.contains(toBeEquipped)){
+		if(inventory.getItemList().contains(toBeEquipped)){
 			typeToBe = toBeEquipped.getType();
 			//checking if player has equipment with given type. If so we'll remove the old item and add the new item
 			//from inventory
@@ -102,20 +102,24 @@ public class Player extends CCharacter{
 			// Player has no equipment with the given type
 			if(!equipped){
 				equipments.add(toBeEquipped);
+				return true;
 			}
+			return false;
 		}
 		else{
 			//System.out.println("Item" + toBeEquipped.name()+" is not on your inventory")
+			return false;
 		}
 	
 			
 	}
 	public void displayInventory(){
-//		System.out.println(inventory);
+		//		System.out.println(inventory);
 		//TODO o konsol bu konsol degil abi. compilerin konsolunu kullanmiyoruz!!!!
+		//oke
 	}
 	public Item findItem(String itemName){
-		for(Item it: inventory){
+		for(Item it : inventory.getItemList()){
 			if(it.getName().equalsIgnoreCase(itemName))
 				return it;
 		}
@@ -128,11 +132,11 @@ public class Player extends CCharacter{
 		int baseStrengthSum = 0;
 		for(Item it: equipments){
 			if(it.getType().equalsIgnoreCase("Weapon")){
-				baseDamageSum += it.getBaseDamage();
+				baseDamageSum += ((Weapon)it).getBaseDamage();
 			}
-			else if (item.getType().equalsIgnoreCase("Armor")){
-				baseArmorProtectionSum += it.getBaseProtection();
-				baseStrengthSum += it.getBaseStrength();
+			else if (it.getType().equalsIgnoreCase("Armor")){
+				baseArmorProtectionSum += ((Armor)it).getBaseProtection();
+				baseStrengthSum += ((Armor)it).getBaseStrength();
 			}
 		}
 		super.setArmorValue(baseArmorProtectionSum);
@@ -152,4 +156,4 @@ public class Player extends CCharacter{
 
 
 
-}
+

@@ -4,8 +4,8 @@ import java.awt.Image;
 
 public class WearableItem extends Item{
 
-	public WearableItem(String description, double weight, Image icon) {
-		super(description, weight, icon);
+	public WearableItem(String description,String type,String name, double weight, Image icon) {
+		super(description, type , name, weight, icon);
 		// TODO Auto-generated constructor stub
 	}
 }

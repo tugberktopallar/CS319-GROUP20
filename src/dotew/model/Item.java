@@ -1,16 +1,26 @@
 package dotew.model;
 import java.awt.Image;
 public class Item {
+	private String type;
+	private String name;
 	private String description;
 	private double weight;
 	private Image icon;
-	public Item(String description, double weight, Image icon) {
+	public Item(String name,String type,String description, double weight, Image icon) {
 		super();
+		this.name = name;
+		this.type = type;
 		this.description = description;
 		this.weight = weight;
 		this.icon = icon;
 	}
-	
+	public Item(){
+		name = "";
+		type = "";
+		description ="";
+		weight =0.0;
+		icon =null;
+	}
 	
 	
 	public String getDescription() {
@@ -30,6 +40,16 @@ public class Item {
 	}
 	public void setIcon(Image icon) {
 		this.icon = icon;
+	}
+
+
+
+	public String getType() {
+		return type;
+	}
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

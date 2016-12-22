@@ -55,7 +55,7 @@ public class BattleManager {
 	
 	public boolean isEnemiesDead(){
 		for (int i = 1; i < getCharacterList().size(); i++) {
-			if(!getCharacterList().get(i).isDead()){
+			if(!((CCharacter)getCharacterList().get(i)).isDead()){
 				return false;
 			}
 		}
@@ -65,7 +65,7 @@ public class BattleManager {
 	public void endBattle(){
 		giveBattleRewards(getCharacterList());
 		setTurnManager(null);
-		((Player) getCharacterList().get(0)).clearStatusAffects();
+		((Player) getCharacterList().get(0)).clearAllStatusEffects();
 		//TODO
 	}
 	
@@ -83,8 +83,9 @@ public class BattleManager {
 		giveExp();
 		ArrayList rewards = new ArrayList();
 		for (int i = 1; i < getCharacterList().size(); i++) {
-			for (int j = 0; j < getCharacterList().get(0).getDroppableItems().length; j++) {
-				rewards.add(getCharacterList().get(0).getDroppableItems()[j]);
+			
+			for (int j = 0; j < ((Enemy) getCharacterList().get(0)).getDroppableItems().size(); j++) {
+				rewards.add(((Enemy) getCharacterList().get(0)).getDroppableItems().get(j));
 			}
 			
 		}
