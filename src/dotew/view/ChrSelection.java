@@ -1,5 +1,6 @@
 package dotew.view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -75,10 +76,14 @@ public class ChrSelection extends JPanel {
 		gbcBtn.gridheight = 1;
 		gbcBtn.gridwidth = 3;
 		
+		chr1.setBackground(new Color(139, 130, 105));
+		chr2.setBackground(new Color(139, 130, 105));
+		chr3.setBackground(new Color(139, 130, 105));
+		
 		this.add(chr1,gbcBtn);
 		this.add(chr2,gbcBtn);
 		this.add(chr3,gbcBtn);
-		
+		this.setBackground(new Color(139, 130, 105));
 		
 		
 		
