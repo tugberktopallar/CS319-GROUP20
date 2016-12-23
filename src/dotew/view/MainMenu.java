@@ -1,6 +1,7 @@
 package dotew.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,15 +38,15 @@ public class MainMenu extends JPanel {
 	
 	public MainMenu() {
 		GridBagLayout layoutMain = new GridBagLayout();
-		GridBagConstraints gbcBtn = new GridBagConstraints();
-		gbcBtn.fill = GridBagConstraints.NONE;
-		gbcBtn.gridheight = 1;
-		gbcBtn.gridwidth = 3;
+		
 		
 		
 		
 		this.setLayout(layoutMain);
 		this.setSize(new Dimension(1280,720));
+		
+		
+		
 		
 		Dimension dmBtn = new Dimension(125, 50);
 		btnNewGame = new JButton("New Game");
@@ -72,23 +74,46 @@ public class MainMenu extends JPanel {
 //		lblLogo = new JLabel();
 //		lblLogo.add(logo);
 		
+		ImageIcon img = new ImageIcon(new Dummy().getClass().getResource("MainBackGround.jpg"));
+	
+		
+		
+		lblLogo = new JLabel(img);
+		lblLogo.setLayout(layoutMain);
+		Dimension dmLogo = new Dimension(this.getWidth(),this.getHeight());
+		lblLogo.setPreferredSize(dmLogo);
+		
+		
+		GridBagConstraints gbcLogo = new GridBagConstraints();
+		gbcLogo.fill = GridBagConstraints.BOTH;
+		
+		
+		
+		this.add(lblLogo,gbcLogo);
+	
+		
+		//add Buttons
+		GridBagConstraints gbcBtn = new GridBagConstraints();
+		gbcBtn.fill = GridBagConstraints.NONE;
+		gbcBtn.gridheight = 1;
+		gbcBtn.gridwidth = 3;
 		gbcBtn.gridx = GridBagConstraints.CENTER;
 		gbcBtn.insets = new Insets(150, 0, 8, 0);
-		
-		this.add(btnNewGame,gbcBtn);
-//		gbcBtn.gridy = GridBagConstraints.RELATIVE;
+		lblLogo.add(btnNewGame,gbcBtn);
+
 		gbcBtn.insets = new Insets(8, 0, 8, 0);
 		
-		this.add(btnLoadGame,gbcBtn);
+		lblLogo.add(btnLoadGame,gbcBtn);
 		
 		
-		this.add(btnSettings,gbcBtn);
+		lblLogo.add(btnSettings,gbcBtn);
 	
-		this.add(btnCredits,gbcBtn);
+		lblLogo.add(btnCredits,gbcBtn);
 		
-		this.add(btnExit,gbcBtn);
-
+		lblLogo.add(btnExit,gbcBtn);
 		
+		lblLogo.setBackground(new Color(0,true));
+//		lblLogo.setVisible(true);
 		
 		
 	}
@@ -96,22 +121,32 @@ public class MainMenu extends JPanel {
 	@Override
 	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
+	
 		super.paint(g);
-		
-		Image img = null;
-		try {
-			img = ImageIO.read(new Dummy().getClass().getResource("MainBackGround.jpg"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(img != null){
-			int h = img.getHeight(this);
-			int w = img.getWidth(this);
+//		Image img = null;
+//		try {
+//			img = ImageIO.read(new Dummy().getClass().getResource("MainBackGround.jpg"));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		if(img != null){
+//			int h = this.getHeight();
+//			int w = this.getWidth();
+//			
+//			img = img.getScaledInstance(w, h, Image.SCALE_DEFAULT);
+//			
+//			g.drawImage(img, 0, 0, new Color(0,true), this);
+//			this.btnNewGame.setVisible(true);
+//			
+//		}
 			
-			g.drawImage(img,0,0,this);
-		}
-			
+	}
+	
+	@Override
+	public void update(Graphics g) {
+		// TODO Auto-generated method stub
+		super.update(g);
 	}
 
 	public MainMenu(LayoutManager arg0) {
