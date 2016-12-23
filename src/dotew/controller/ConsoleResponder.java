@@ -45,4 +45,8 @@ public class ConsoleResponder {
 		this.textBox.append(c1.getName() + " caused " + amount+ " points of damage to "+c2.getName()+"\n");
 	} 
 	
+	public void giveResponse(String response){
+		this.textBox.append(response);
+	}
+	
 }
