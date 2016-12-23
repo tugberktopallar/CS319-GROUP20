@@ -20,6 +20,13 @@ public class QuestManager {
 	public QuestManager() {
 		// TODO Auto-generated constructor stub
 	}
+<<<<<<< HEAD
+=======
+	
+	public int getTotalQuests(){
+		return ongoingQuests.length;
+	}
+>>>>>>> origin/master
 
 	public void switchCurrentQuests(Player p){
 		//
