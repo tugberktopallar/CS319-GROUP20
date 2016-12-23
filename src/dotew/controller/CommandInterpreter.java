@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 
 import dotew.model.CCharacter;
+import dotew.model.NPC;
+import dotew.model.Skill;
 
 import java.io.IOException;
 import java.awt.TextArea;
@@ -16,15 +18,22 @@ public class CommandInterpreter {
 	private TextArea textBox;
 	private String currentCommand;
 	private GameEngine game;
+	private NPC npc;
+	private JTextField textBoxCommand;
 		
 	//constructor
-	CommandInterpreter(Hashtable<String, Integer> commandLibrary, TextArea textBox, String currentCommand){
+	CommandInterpreter(Hashtable<String, Integer> commandLibrary, TextArea textBox, String currentCommand, NPC npc){
 		this.commandLibrary = commandLibrary;
 		this.textBox = textBox;
 		this.currentCommand = currentCommand;
+		this.npc = npc;
 	}
 		
-	public String checkSyntax(String command){
+	public CommandInterpreter(JTextField textBoxCommand) {
+		this.textBoxCommand = null;
+	}
+
+	public void checkSyntax(String command){
 		
 		String chName = "";
 		command = command.toLowerCase();
@@ -33,22 +42,21 @@ public class CommandInterpreter {
 		//for attack method determines the enemy index
 		if(command.substring(0 , 7).equals("attack")){
 			chName = command.substring(7, command.length());
-			return matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName), null);
+			matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName));
 		}
 		
 		//applyskill method, dteremines enemy index, skill name
 		if(command.substring(0 , 10).equals("applyskill")){
 			text = command.split(" ");
-			return matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]), (Skill)text[2]);
+			matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]));
 		}	
 			
 		//for other methods
-		return matchCommand(command.replaceAll("\\s+",""), -1, null);			
+		matchCommand(command.replaceAll("\\s+",""), -1);			
 	}
 		
-	public String matchCommand(String str, int index, Skill s){
-
-		   
+	public void matchCommand(String str, int index){
+  
 		   Integer n = commandLibrary.get(str);
 		   if (n != null) { 
 				switch(n){
@@ -70,32 +78,27 @@ public class CommandInterpreter {
 				    	
 				    //use skill(skill name, on ch)
 					case 6:
-						game.getBattleManager().applySkill(game.getPlayer(),  (CCharacter) game.getBattleManager().getCharacterList().get(index), );
+						//game.getBattleManager().applySkill(game.getPlayer(),  (CCharacter) game.getBattleManager().getCharacterList().get(index), );
 						break;
 						
 					//is there anything i can help you with
 					case 7:
+						npc.giveQuest(game.getPlayer());
 						break;
-						
-						
-					
-				    	
-			    
+						   
 				}
 			}
+		   
+			   
 		}
 
 		
 		public String getCommandFrmTextBox(){
-			currentCommand ;
-			return currentCommand;
+			return textBoxCommand.getText();
 					
 		}
 		
 		//getset
-		public TextArea getTextBox(){
-			return textBox;
-		}
 		
 		public String GetCurrentCommand(){
 			return currentCommand;
