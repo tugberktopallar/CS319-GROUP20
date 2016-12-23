@@ -3,7 +3,7 @@ package dotew.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-	public abstract class CCharacter {
+	public abstract class CCharacter extends GameObject {
 
 	
 		// stats[0] = Strength , stats[1] = Intelligence

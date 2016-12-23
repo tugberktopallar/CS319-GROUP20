@@ -16,4 +16,8 @@ public class GameObject {
 		}
 		return false;
 	}
+	public Object getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
 }

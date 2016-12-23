@@ -23,7 +23,7 @@ public class Player extends CCharacter{
 		unfinishedQuests = new ArrayList<Quest>();
 		activeQuests = new ArrayList<Quest>();
 		finishedQuests = new ArrayList<Quest>();
-		//TODO : unfinished Quest'lere eklemeler yapýlacak(ilk baþta bütün questler unfinished)
+		//TODO : unfinished Quest'lere eklemeler yapï¿½lacak(ilk baï¿½ta bï¿½tï¿½n questler unfinished)
 		expRequirements= new int[4]; //4 level olsun?
 		// playerx
 	}
@@ -62,7 +62,7 @@ public class Player extends CCharacter{
 		else if(stat.equalsIgnoreCase("Intelligence")){
 			super.increaseOrDecreaseConstitution(amount);
 		}
-		//burada bilmemkaç turn sonra nasýl adamýn statýný eski hale koyacaðýz?
+		//burada bilmemkaï¿½ turn sonra nasï¿½l adamï¿½n statï¿½nï¿½ eski hale koyacaï¿½ï¿½z?
 	}
 	public void levelUp(){
 		if(level <=3){
@@ -126,7 +126,7 @@ public class Player extends CCharacter{
 		return null;
 	}
 	//type = Weapon,Armor
-	//baseStrength yaptýk, onun için CCharacter'e strength setter'ý konacak.
+	//baseStrength yaptï¿½k, onun iï¿½in CCharacter'e strength setter'ï¿½ konacak.
 	public void updateAttackArmorValue(){
 		double baseDamageSum = 0,baseArmorProtectionSum = 0;
 		int baseStrengthSum = 0;
@@ -143,7 +143,7 @@ public class Player extends CCharacter{
 		super.setAttackDamage(baseDamageSum);
 		
 	}
-	public Player getInstance(){
+	public static Player getInstance(){
 		if(playerx == null){
 			playerx = new Player();
 			return playerx;
