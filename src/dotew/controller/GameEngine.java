@@ -52,6 +52,10 @@ public class GameEngine {
 		
 		return gameEngine;
 	}
+	
+	public static GameEngine getInstance(){
+		return gameEngine;
+	}
 
 	public ArrayList<Zone> getZoneList() {
 		return zoneList;

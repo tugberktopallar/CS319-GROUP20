@@ -1,15 +1,26 @@
 package dotew.view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.LayoutManager;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.image.ImageObserver;
+import java.text.AttributedCharacterIterator;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import dotew.controller.GameEngine;
 
 public class GameScreen extends JPanel {
 	JTextArea txtBoxConsole;
@@ -28,11 +39,15 @@ public class GameScreen extends JPanel {
 		gbcBtn.gridwidth = 2;
 		
 		txtBoxConsole = new JTextArea();
+		txtBoxConsole.setEditable(false);
 		txtBoxConsole.setPreferredSize(new Dimension(550, 550));
 		txtBoxCommand = new JTextField();
 		txtBoxCommand.setPreferredSize(new Dimension(1000, 100));
 		multiPurpose = new JPanel(new FlowLayout(FlowLayout.TRAILING));
 		multiPurpose.setPreferredSize(new Dimension(550, 550));
+		GameEngine gameEngine = GameEngine.getInstance();
+		   
+		
 		btnEnter = new JButton("Enter");
 		btnEnter.setPreferredSize(new Dimension(150, 50));
 		
