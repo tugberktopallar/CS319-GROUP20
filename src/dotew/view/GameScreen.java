@@ -1,9 +1,12 @@
 package dotew.view;
 
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.LayoutManager;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -12,6 +15,7 @@ public class GameScreen extends JPanel {
 	JTextArea txtBoxConsole;
 	JTextField txtBoxCommand;
 	JPanel multiPurpose;
+	JButton btnEnter;
 	
 
 	
@@ -22,7 +26,26 @@ public class GameScreen extends JPanel {
 		gbcBtn.fill = GridBagConstraints.NONE;
 		gbcBtn.gridheight = 2;
 		gbcBtn.gridwidth = 2;
+		
+		txtBoxConsole = new JTextArea();
+		txtBoxConsole.setPreferredSize(new Dimension(550, 550));
+		txtBoxCommand = new JTextField();
+		txtBoxCommand.setPreferredSize(new Dimension(1000, 100));
+		multiPurpose = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+		multiPurpose.setPreferredSize(new Dimension(550, 550));
+		btnEnter = new JButton("Enter");
+		btnEnter.setPreferredSize(new Dimension(150, 50));
+		
+		this.add(txtBoxConsole);
+		this.add(multiPurpose);
+		this.add(txtBoxCommand);
+		this.add(btnEnter);
+		
+		
+		
 	}
+
+	
 
 	public GameScreen(LayoutManager layout) {
 		super(layout);
@@ -39,7 +62,13 @@ public class GameScreen extends JPanel {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public JButton getBtnEnter() {
+		return btnEnter;
+	}
+
+	public void setBtnEnter(JButton btnEnter) {
+		this.btnEnter = btnEnter;
+	}
 	public JTextArea getTxtBoxConsole() {
 		return txtBoxConsole;
 	}

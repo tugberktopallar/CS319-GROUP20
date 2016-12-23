@@ -39,7 +39,9 @@ public class TheGameMain {
 		addListenersToMain(cardContainer,mainMenu);
 		
 		ChrSelection chrSelectionScreen = new ChrSelection();
+		
 		GameScreen theGameScreen = new GameScreen();
+		addListenersTochrSelect(cardContainer, chrSelectionScreen, theGameScreen);
 		
 		cardContainer.add(mainMenu, "MainMenu");
 		cardContainer.add(chrSelectionScreen,"CharacterSelect");
@@ -64,6 +66,7 @@ public class TheGameMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("warrior");
 				gameEngine = GameEngine.getInstance(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
 				player = gameEngine.getPlayer();
 				//player.setClassOfCharacter(new ClassGame("Warrior"));
@@ -76,6 +79,7 @@ public class TheGameMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Rogue");
 				gameEngine = GameEngine.getInstance(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
 				player = gameEngine.getPlayer();
 				//player.setClassOfCharacter(new ClassGame("Rogue"));
@@ -88,6 +92,7 @@ public class TheGameMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Mage");
 				gameEngine = GameEngine.getInstance(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
 				player = gameEngine.getPlayer();
 				//player.setClassOfCharacter(new ClassGame("Mage"));

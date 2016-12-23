@@ -32,7 +32,7 @@ public class GameEngine {
 			this.player = Player.getInstance();
 			this.zoneList = new ArrayList<Zone>();
 			// Zone list eklenecek
-			this.currentZone = this.zoneList.get(0);
+			this.currentZone = null; //this.zoneList.get(0);
 			//Settings ve File Manager eklenecek
 			this.questManager = new QuestManager();
 			this.commandInterpreter = new CommandInterpreter(textBoxCommand);
