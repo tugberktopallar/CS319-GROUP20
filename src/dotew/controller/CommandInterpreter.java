@@ -1,65 +1,114 @@
 package dotew.controller;
 
 import java.util.ArrayList;
-
 import javax.swing.JTextField;
 
+import dotew.model.CCharacter;
+
+import java.io.IOException;
 import java.awt.TextArea;
+import java.util.*;
 
 
 public class CommandInterpreter {
 
-	private ArrayList<String> commandLibrary;
+	private Hashtable<String, Integer> commandLibrary;
 	private TextArea textBox;
 	private String currentCommand;
-	
+	private GameEngine game;
+		
 	//constructor
-	CommandInterpreter(ArrayList<String> commandLibrary, TextArea textBox, String currentCommand){
+	CommandInterpreter(Hashtable<String, Integer> commandLibrary, TextArea textBox, String currentCommand){
 		this.commandLibrary = commandLibrary;
 		this.textBox = textBox;
 		this.currentCommand = currentCommand;
 	}
-	
-	public CommandInterpreter(JTextField textBox) {
-		// TODO Auto-generated constructor stub
+		
+	public String checkSyntax(String command){
+		
+		String chName = "";
+		command = command.toLowerCase();
+		String[] text; 
+		
+		//for attack method determines the enemy index
+		if(command.substring(0 , 7).equals("attack")){
+			chName = command.substring(7, command.length());
+			return matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName), null);
+		}
+		
+		//applyskill method, dteremines enemy index, skill name
+		if(command.substring(0 , 10).equals("applyskill")){
+			text = command.split(" ");
+			return matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]), (Skill)text[2]);
+		}	
+			
+		//for other methods
+		return matchCommand(command.replaceAll("\\s+",""), -1, null);			
+	}
+		
+	public String matchCommand(String str, int index, Skill s){
+
+		   
+		   Integer n = commandLibrary.get(str);
+		   if (n != null) { 
+				switch(n){
+					case 1:
+						game.move("north");
+						break;
+					case 2:
+				    	game.move("south");
+				    	break;
+					case 3:
+				    	game.move("east");
+				    	break;
+					case 4:
+				    	game.move("west");
+				    	break;
+					case 5:
+				    	game.getBattleManager().attack(game.getPlayer(), (CCharacter) game.getBattleManager().getCharacterList().get(index));
+				    	break;
+				    	
+				    //use skill(skill name, on ch)
+					case 6:
+						game.getBattleManager().applySkill(game.getPlayer(),  (CCharacter) game.getBattleManager().getCharacterList().get(index), );
+						break;
+						
+					//is there anything i can help you with
+					case 7:
+						break;
+						
+						
+					
+				    	
+			    
+				}
+			}
+		}
+
+		
+		public String getCommandFrmTextBox(){
+			currentCommand ;
+			return currentCommand;
+					
+		}
+		
+		//getset
+		public TextArea getTextBox(){
+			return textBox;
+		}
+		
+		public String GetCurrentCommand(){
+			return currentCommand;
+		}
+		
+		public void setCommandLibrary(Hashtable commandLibrary){
+			this.commandLibrary = commandLibrary;
+		}
+		public void setTextBox(TextArea textBox){
+			this.textBox = textBox;
+		}
+		public void setCurrentCommand(String currentCommand){
+			this.currentCommand = currentCommand;
+		}
 	}
 
-	public boolean checkSyntax(String command){
-		return false;
-		// TODO
-	}
-	
-	public String matchCommand(String str){
-		return str;
-		// TODO
-	}
-	
-	public String getCommandFrmTextBox(){
-		return currentCommand;
-		// TODO
-		
-	}
-	
-	//getset
-	public ArrayList<String> getCommandLibrary(){
-		return commandLibrary;
-	}
-	
-	public TextArea getTextBox(){
-		return textBox;
-	}
-	
-	public String GetCurrentCommand(){
-		return currentCommand;
-	}
-	
-	public void setCommandLibrary(ArrayList <String> commandLibrary){
-		this.commandLibrary = commandLibrary;
-	}
-	public void setTextBox(TextArea textBox){
-		this.textBox = textBox;
-	}
-	public void setCurrentCommand(String currentCommand){
-		this.currentCommand = currentCommand;
-	}
-}
