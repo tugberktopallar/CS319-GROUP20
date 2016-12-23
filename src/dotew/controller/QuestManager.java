@@ -17,6 +17,14 @@ public class QuestManager {
 		
 	}
 	
+	public QuestManager() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public int getTotalQuests(){
+		return ongoingQuests.length;
+	}
+
 	public void switchCurrentQuests(Player p){
 		//
 	}
