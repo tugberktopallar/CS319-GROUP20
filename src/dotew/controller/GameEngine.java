@@ -135,7 +135,7 @@ public class GameEngine {
 	}
 	
 	public void move(String direction){
-		this.mapManager.move(direction,this.player);
+		//this.mapManager.move(direction,this.player);
 			
 	}
 	
@@ -144,7 +144,7 @@ public class GameEngine {
 	}
 	
 	public void drawMap(){
-		this.mapManager.drawMap();
+		//this.mapManager.drawMap();
 	}
 	
 	
