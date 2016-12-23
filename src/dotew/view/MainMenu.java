@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridBagLayoutInfo;
@@ -11,8 +12,10 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.LayoutManager;
+import java.io.IOException;
 import java.io.InputStream;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,63 +30,7 @@ public class MainMenu extends JPanel {
 	JButton btnCredits;
 	JButton btnExit;
 	
-	public JButton getBtnNewGame() {
-		return btnNewGame;
-	}
 
-
-
-	public void setBtnNewGame(JButton btnNewGame) {
-		this.btnNewGame = btnNewGame;
-	}
-
-
-
-	public JButton getBtnLoadGame() {
-		return btnLoadGame;
-	}
-
-
-
-	public void setBtnLoadGame(JButton btnLoadGame) {
-		this.btnLoadGame = btnLoadGame;
-	}
-
-
-
-	public JButton getBtnSettings() {
-		return btnSettings;
-	}
-
-
-
-	public void setBtnSettings(JButton btnSettings) {
-		this.btnSettings = btnSettings;
-	}
-
-
-
-	public JButton getBtnCredits() {
-		return btnCredits;
-	}
-
-
-
-	public void setBtnCredits(JButton btnCredits) {
-		this.btnCredits = btnCredits;
-	}
-
-
-
-	public JButton getBtnExit() {
-		return btnExit;
-	}
-
-
-
-	public void setBtnExit(JButton btnExit) {
-		this.btnExit = btnExit;
-	}
 
 	JLabel lblLogo;
 	
@@ -146,7 +93,26 @@ public class MainMenu extends JPanel {
 		
 	}
 	
-	
+	@Override
+	public void paint(Graphics g) {
+		// TODO Auto-generated method stub
+		super.paint(g);
+		
+		Image img = null;
+		try {
+			img = ImageIO.read(new Dummy().getClass().getResource("MainBackGround.jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(img != null){
+			int h = img.getHeight(this);
+			int w = img.getWidth(this);
+			
+			g.drawImage(img,0,0,this);
+		}
+			
+	}
 
 	public MainMenu(LayoutManager arg0) {
 		super(arg0);
@@ -163,6 +129,62 @@ public class MainMenu extends JPanel {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public JButton getBtnNewGame() {
+		return btnNewGame;
+	}
+
+
+
+	public void setBtnNewGame(JButton btnNewGame) {
+		this.btnNewGame = btnNewGame;
+	}
+
+
+
+	public JButton getBtnLoadGame() {
+		return btnLoadGame;
+	}
+
+
+
+	public void setBtnLoadGame(JButton btnLoadGame) {
+		this.btnLoadGame = btnLoadGame;
+	}
+
+
+
+	public JButton getBtnSettings() {
+		return btnSettings;
+	}
+
+
+
+	public void setBtnSettings(JButton btnSettings) {
+		this.btnSettings = btnSettings;
+	}
+
+
+
+	public JButton getBtnCredits() {
+		return btnCredits;
+	}
+
+
+
+	public void setBtnCredits(JButton btnCredits) {
+		this.btnCredits = btnCredits;
+	}
+
+
+
+	public JButton getBtnExit() {
+		return btnExit;
+	}
+
+
+
+	public void setBtnExit(JButton btnExit) {
+		this.btnExit = btnExit;
+	}
 
 }
