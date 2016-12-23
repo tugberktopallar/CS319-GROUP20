@@ -12,7 +12,7 @@ public class NPC extends GameObject{
 	  player hasn't done, adds the quest to the player's quest list 
 	  //TODO: Eklesin mi listeye? yoksa listeye ekleyip set mi etsin? 
 	*/
-	public void giveQuest(Player p1,int choice){
+	public void giveQuest(Player p1){
 		for(int i = 0; i< questList.size();i++){
 			if(p1.getUnfinishedQuests().contains(questList.get(i))){
 				Quest q = questList.get(i);
