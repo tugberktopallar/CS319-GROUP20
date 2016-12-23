@@ -9,6 +9,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagLayoutInfo;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.io.InputStream;
 
@@ -26,6 +27,64 @@ public class MainMenu extends JPanel {
 	JButton btnCredits;
 	JButton btnExit;
 	
+	public JButton getBtnNewGame() {
+		return btnNewGame;
+	}
+
+
+
+	public void setBtnNewGame(JButton btnNewGame) {
+		this.btnNewGame = btnNewGame;
+	}
+
+
+
+	public JButton getBtnLoadGame() {
+		return btnLoadGame;
+	}
+
+
+
+	public void setBtnLoadGame(JButton btnLoadGame) {
+		this.btnLoadGame = btnLoadGame;
+	}
+
+
+
+	public JButton getBtnSettings() {
+		return btnSettings;
+	}
+
+
+
+	public void setBtnSettings(JButton btnSettings) {
+		this.btnSettings = btnSettings;
+	}
+
+
+
+	public JButton getBtnCredits() {
+		return btnCredits;
+	}
+
+
+
+	public void setBtnCredits(JButton btnCredits) {
+		this.btnCredits = btnCredits;
+	}
+
+
+
+	public JButton getBtnExit() {
+		return btnExit;
+	}
+
+
+
+	public void setBtnExit(JButton btnExit) {
+		this.btnExit = btnExit;
+	}
+
 	JLabel lblLogo;
 	
 	public MainMenu() {
@@ -40,23 +99,23 @@ public class MainMenu extends JPanel {
 		this.setLayout(layoutMain);
 		this.setSize(new Dimension(1280,720));
 		
-		Dimension dmBtn = new Dimension(150, 100);
+		Dimension dmBtn = new Dimension(125, 50);
 		btnNewGame = new JButton("New Game");
-		btnNewGame.setSize(dmBtn);
+		btnNewGame.setPreferredSize(dmBtn);
 		
 //		btnNewGame.setAlignmentX(CENTER_ALIGNMENT);
 		
 		btnLoadGame= new JButton("Load Game");
-		btnLoadGame.setSize(dmBtn);
+		btnLoadGame.setPreferredSize(dmBtn);
 	//	btnLoadGame.setAlignmentX(CENTER_ALIGNMENT);
 		btnSettings= new JButton("Settings");
-		btnSettings.setSize(dmBtn);
+		btnSettings.setPreferredSize(dmBtn);
 		//btnSettings.setAlignmentX(CENTER_ALIGNMENT);
 		btnCredits= new JButton("Credits");
-		btnCredits.setSize(dmBtn);
+		btnCredits.setPreferredSize(dmBtn);
 		//btnCredits.setAlignmentX(CENTER_ALIGNMENT);
 		btnExit= new JButton("Exit");
-		btnExit.setMinimumSize(dmBtn);
+		btnExit.setPreferredSize(dmBtn);
 	//	btnExit.setAlignmentX(CENTER_ALIGNMENT);
 		
 		
@@ -67,9 +126,11 @@ public class MainMenu extends JPanel {
 //		lblLogo.add(logo);
 		
 		gbcBtn.gridx = GridBagConstraints.CENTER;
+		gbcBtn.insets = new Insets(150, 0, 8, 0);
 		
 		this.add(btnNewGame,gbcBtn);
 //		gbcBtn.gridy = GridBagConstraints.RELATIVE;
+		gbcBtn.insets = new Insets(8, 0, 8, 0);
 		
 		this.add(btnLoadGame,gbcBtn);
 		
