@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 
 import dotew.model.CCharacter;
-<<<<<<< HEAD
-=======
+
 import dotew.model.NPC;
->>>>>>> origin/master
+
 import dotew.model.Skill;
 
 import java.io.IOException;
@@ -33,25 +32,23 @@ public class CommandInterpreter {
 	}
 		
 	public CommandInterpreter(JTextField textBoxCommand) {
-<<<<<<< HEAD
-		// TODO Auto-generated constructor stub
-=======
+
 		this.textBoxCommand = null;
->>>>>>> origin/master
+
 	}
 
-	public void checkSyntax(String command){
-		
-		String chName = "";
-		command = command.toLowerCase();
-		String[] text; 
-		
-		//for attack method determines the enemy index
-		if(command.substring(0 , 7).equals("attack")){
-			chName = command.substring(7, command.length());
-<<<<<<< HEAD
-			matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName), null);
-		}
+//	public void checkSyntax(String command){
+//		
+//		String chName = "";
+//		command = command.toLowerCase();
+//		String[] text; 
+//		
+//		//for attack method determines the enemy index
+//		if(command.substring(0 , 7).equals("attack")){
+//			chName = command.substring(7, command.length());
+//
+//			matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName), null);
+//		}
 		
 		//applyskill method, dteremines enemy index, skill name
 //		if(command.substring(0 , 10).equals("applyskill")){
@@ -60,29 +57,29 @@ public class CommandInterpreter {
 //		}	
 			
 		//for other methods
-		matchCommand(command.replaceAll("\\s+",""), -1, null);			
-	}
-		
-	public void matchCommand(String str, int index, Skill s){
-
-		   
-=======
-			matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName));
-		}
-		
-		//applyskill method, dteremines enemy index, skill name
-		if(command.substring(0 , 10).equals("applyskill")){
-			text = command.split(" ");
-			matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]));
-		}	
-			
-		//for other methods
-		matchCommand(command.replaceAll("\\s+",""), -1);			
-	}
+//		matchCommand(command.replaceAll("\\s+",""), -1, null);			
+//	}
+//		
+//	public void matchCommand(String str, int index, Skill s){
+//
+//		   
+//
+//			matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName));
+//		
+//		
+//		//applyskill method, dteremines enemy index, skill name
+//		if(command.substring(0 , 10).equals("applyskill")){
+//			text = command.split(" ");
+//			matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]));
+//		}	
+//			
+//		//for other methods
+//		matchCommand(command.replaceAll("\\s+",""), -1);			
+//	}
 		
 	public void matchCommand(String str, int index){
   
->>>>>>> origin/master
+
 		   Integer n = commandLibrary.get(str);
 		   if (n != null) { 
 				switch(n){
@@ -119,13 +116,10 @@ public class CommandInterpreter {
 		}
 
 		
-		public String getCommandFrmTextBox(){
-<<<<<<< HEAD
+		public void getCommandFrmTextBox(){
+
 			currentCommand = this.textBox.getText();
-			return currentCommand;
-=======
-			return textBoxCommand.getText();
->>>>>>> origin/master
+		
 					
 		}
 		
