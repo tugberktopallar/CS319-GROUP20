@@ -18,6 +18,7 @@ public class ConsoleResponder {
 	
 	public ConsoleResponder(JTextArea textBox) {
 		// TODO Auto-generated constructor stub
+		//ready response interpreter lstesindeki keylere göre oluşturulup koda eklenecek
 	}
 
 	//getset
@@ -37,11 +38,11 @@ public class ConsoleResponder {
 	}
 	
 	public void giveResponseFrmLst(Integer tableKey){
-		//TODO
+		this.textBox.append(this.readyResponse.get(tableKey) + "\n");
 	}
 	
 	public void giveAttackResponse(CCharacter c1, CCharacter c2, int amount){
-		//TODO
-	}
+		this.textBox.append(c1.getName() + " caused " + amount+ " points of damage to "+c2.getName()+"\n");
+	} 
 	
 }
