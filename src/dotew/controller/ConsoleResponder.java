@@ -1,6 +1,9 @@
 package dotew.controller;
 
 import java.util.Hashtable;
+
+import javax.swing.JTextArea;
+
 import dotew.model.CCharacter;
 import java.awt.TextArea;
 
@@ -13,6 +16,10 @@ public class ConsoleResponder {
 		this.textBox = textBox;
 	}
 	
+	public ConsoleResponder(JTextArea textBox) {
+		// TODO Auto-generated constructor stub
+	}
+
 	//getset
 	public Hashtable<Integer, String> getReadyResponse(){
 		return readyResponse;

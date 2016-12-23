@@ -1,6 +1,9 @@
 package dotew.controller;
 
 import java.util.ArrayList;
+
+import javax.swing.JTextField;
+
 import java.awt.TextArea;
 
 
@@ -17,6 +20,10 @@ public class CommandInterpreter {
 		this.currentCommand = currentCommand;
 	}
 	
+	public CommandInterpreter(JTextField textBox) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean checkSyntax(String command){
 		return false;
 		// TODO

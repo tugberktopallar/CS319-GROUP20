@@ -28,6 +28,13 @@ public class BattleManager {
 		this.enemyAI = enemyAI;
 	}
 	
+	public BattleManager(BattleMap currentBattleMap){
+		this.currentBattleMap = currentBattleMap;
+		this.characterList = currentBattleMap.getCharacterList();
+		createTurnManager(this.characterList);
+		this.enemyAI = new EnemyAI(null, (Player) this.characterList.get(0));
+	}
+	
 	
 	// Methods
 	public void giveExp(){
