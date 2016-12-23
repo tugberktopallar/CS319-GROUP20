@@ -1,5 +1,7 @@
 package dotew.view;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
@@ -15,7 +17,11 @@ public class GameScreen extends JPanel {
 	
 
 	public GameScreen() {
-		// TODO Auto-generated constructor stub
+		GridBagLayout layoutMain = new GridBagLayout();
+		GridBagConstraints gbcBtn = new GridBagConstraints();
+		gbcBtn.fill = GridBagConstraints.NONE;
+		gbcBtn.gridheight = 2;
+		gbcBtn.gridwidth = 2;
 	}
 
 	public GameScreen(LayoutManager layout) {

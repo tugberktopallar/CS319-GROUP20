@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 
 import dotew.model.CCharacter;
+import dotew.model.Skill;
 
 import java.io.IOException;
 import java.awt.TextArea;
@@ -24,7 +25,11 @@ public class CommandInterpreter {
 		this.currentCommand = currentCommand;
 	}
 		
-	public String checkSyntax(String command){
+	public CommandInterpreter(JTextField textBoxCommand) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void checkSyntax(String command){
 		
 		String chName = "";
 		command = command.toLowerCase();
@@ -33,20 +38,20 @@ public class CommandInterpreter {
 		//for attack method determines the enemy index
 		if(command.substring(0 , 7).equals("attack")){
 			chName = command.substring(7, command.length());
-			return matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName), null);
+			matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName), null);
 		}
 		
 		//applyskill method, dteremines enemy index, skill name
-		if(command.substring(0 , 10).equals("applyskill")){
-			text = command.split(" ");
-			return matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]), (Skill)text[2]);
-		}	
+//		if(command.substring(0 , 10).equals("applyskill")){
+//			text = command.split(" ");
+//			return matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]), (Skill)text[2]);
+//		}	
 			
 		//for other methods
-		return matchCommand(command.replaceAll("\\s+",""), -1, null);			
+		matchCommand(command.replaceAll("\\s+",""), -1, null);			
 	}
 		
-	public String matchCommand(String str, int index, Skill s){
+	public void matchCommand(String str, int index, Skill s){
 
 		   
 		   Integer n = commandLibrary.get(str);
@@ -70,7 +75,7 @@ public class CommandInterpreter {
 				    	
 				    //use skill(skill name, on ch)
 					case 6:
-						game.getBattleManager().applySkill(game.getPlayer(),  (CCharacter) game.getBattleManager().getCharacterList().get(index), );
+						//game.getBattleManager().applySkill(game.getPlayer(),  (CCharacter) game.getBattleManager().getCharacterList().get(index), );
 						break;
 						
 					//is there anything i can help you with
@@ -87,7 +92,7 @@ public class CommandInterpreter {
 
 		
 		public String getCommandFrmTextBox(){
-			currentCommand ;
+			currentCommand = this.textBox.getText();
 			return currentCommand;
 					
 		}

@@ -17,6 +17,10 @@ public class QuestManager {
 		
 	}
 	
+	public QuestManager() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void switchCurrentQuests(Player p){
 		//
 	}
