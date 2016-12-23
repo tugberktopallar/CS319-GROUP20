@@ -66,7 +66,7 @@ public class MapManager {
 		
 		//boundary check only works for N*N map configuration!
 		if(destinationX <0 || destinationX > currentMap.getTerrainCellList()[0].length || destinationY <0 || destinationY>currentMap.getTerrainCellList()[0].length){
-			//you cannot go there
+			GameEngine.getInstance(true,null,null).getConsoleResponder().giveResponse("You cannot go there!\n");
 		}else{
 			if(CollisionHandler.checkForCollision(player, currentMap.getTerrainCellList()[destinationX][destinationY])){
 				//collisionHandler handles the collision
