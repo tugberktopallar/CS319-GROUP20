@@ -37,45 +37,28 @@ public class CommandInterpreter {
 
 	}
 
-//	public void checkSyntax(String command){
-//		
-//		String chName = "";
-//		command = command.toLowerCase();
-//		String[] text; 
-//		
-//		//for attack method determines the enemy index
-//		if(command.substring(0 , 7).equals("attack")){
-//			chName = command.substring(7, command.length());
-//
-//			matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName), null);
-//		}
+	public void checkSyntax(String command){
 		
-		//applyskill method, dteremines enemy index, skill name
+	String chName = "";
+	command = command.toLowerCase();
+
+	
+		//for attack method determines the enemy index
+	if(command.substring(0 , 7).equals("attack")){
+		chName = command.substring(7, command.length());
+
+		matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName));
+	}
+		
+		//applyskill method, determines enemy index, skill name
 //		if(command.substring(0 , 10).equals("applyskill")){
 //			text = command.split(" ");
 //			return matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]), (Skill)text[2]);
 //		}	
 			
 		//for other methods
-//		matchCommand(command.replaceAll("\\s+",""), -1, null);			
-//	}
-//		
-//	public void matchCommand(String str, int index, Skill s){
-//
-//		   
-//
-//			matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName));
-//		
-//		
-//		//applyskill method, dteremines enemy index, skill name
-//		if(command.substring(0 , 10).equals("applyskill")){
-//			text = command.split(" ");
-//			matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]));
-//		}	
-//			
-//		//for other methods
-//		matchCommand(command.replaceAll("\\s+",""), -1);			
-//	}
+		matchCommand(command.replaceAll("\\s+",""), -1);			
+	}
 		
 	public void matchCommand(String str, int index){
   
@@ -118,9 +101,7 @@ public class CommandInterpreter {
 		
 		public void getCommandFrmTextBox(){
 
-			currentCommand = this.textBox.getText();
-		
-					
+			currentCommand = this.textBox.getText();				
 		}
 		
 		//getset
