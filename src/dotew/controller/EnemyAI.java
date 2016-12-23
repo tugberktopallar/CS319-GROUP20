@@ -31,7 +31,7 @@ public class EnemyAI {
 	
 	public boolean checkSkillRestrictions(Skill s){
 		
-		return (getCurrentCharacter().getMapCell().getPoint().distance(getPlayer().getMapCell().getPoint())) <= s.getRestriction();
+		return (getCurrentCharacter().getMapCell().getPosition().distance(getPlayer().getMapCell().getPosition())) <= s.getRestriction();
 		
 	}
 	

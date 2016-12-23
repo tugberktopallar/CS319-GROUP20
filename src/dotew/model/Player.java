@@ -11,7 +11,7 @@ public class Player extends CCharacter{
 	private ArrayList<Quest> activeQuests;
 	private ArrayList<Quest> finishedQuests;
 	private int enemyKillCount;
-	private Player playerx;
+	private static Player player;
 	private int [] expRequirements;
 	
 	private Player(){
@@ -144,12 +144,12 @@ public class Player extends CCharacter{
 		
 	}
 	public static Player getInstance(){
-		if(playerx == null){
-			playerx = new Player();
-			return playerx;
+		if(player == null){
+			player = new Player();
+			return player;
 		}
 		else
-			return playerx;
+			return player;
 	}
 	
 }
