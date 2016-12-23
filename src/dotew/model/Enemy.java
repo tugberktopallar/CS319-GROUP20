@@ -1,5 +1,6 @@
 package dotew.model;
 import java.util.ArrayList;
+//Enemy yaratmayacaðýz, ghoul ogre filan yaratacaðýz diye assume edildi.
 public class Enemy extends CCharacter {
 	private ArrayList<String> scriptedDialogues;
 	private ArrayList<Item> droppableItems;
@@ -9,6 +10,8 @@ public class Enemy extends CCharacter {
 		scriptedDialogues = new ArrayList<String>();
 		droppableItems = new ArrayList<Item>();
 		expPointValue = 0;
+		this.setType("enemy");
+		this.makeInteractible();
 	}
 	public boolean addItem(Item it){
 		if(droppableItems.contains(it)){
@@ -35,25 +38,10 @@ public class Enemy extends CCharacter {
 		//TODO : random mu seçeceðiz, belirli mi seçeceðiz dialoglarý
 	}
 	
-	public Enemy create(String s){
-		if(s != null||s.length()>0){
-			char ch= s.toLowerCase().charAt(0);
-			switch(ch){
-			case 'o':
-				return Ogre.create();
-			case 'h':
-				return HumanEnemy.create();
-			case 'b':
-				return Boss.create();
-			case 'g':
-				return Ghoul.create();
-			default:
-				return null;
-			}
-		}
+	public static Enemy create(String s){
+		//to be overwritten
 		return null;
-		
-	}
+	};
 	
 	public ArrayList<String> getScriptedDialogues() {
 		return scriptedDialogues;

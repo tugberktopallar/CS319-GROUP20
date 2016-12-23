@@ -8,7 +8,10 @@ public class Boss extends Enemy{
 	}
 	//@Override
 	public static Enemy create(){
-		return new Boss();
+		Boss b = new Boss();
+		b.setType("Enemy");
+		b.setName("Boss");
+		return b;
 	}
 
 }

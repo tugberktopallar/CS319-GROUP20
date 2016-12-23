@@ -1,8 +1,11 @@
 package dotew.model;
 import java.awt.Image;
 public class GameObject {
-	private String name;
+	//Designdaki "name " = type oldu
+	//type of the object indicates whether it is npc,enemy,battlestarter,or simply a character.
+	private String type;
 	private Image Icon;
+	private String name;
 	private TerrainCell tCell;
 	private boolean interactiveness;
 	public GameObject() {
@@ -16,8 +19,38 @@ public class GameObject {
 		}
 		return false;
 	}
-	public String getName() {
+	public String getType() {
 		// TODO Auto-generated method stub
+		return type;
+	}
+	public void setType(String type){
+		this.type = type;
+	}
+	public Image getIcon() {
+		return Icon;
+	}
+	public void setIcon(Image icon) {
+		Icon = icon;
+	}
+	public String getName() {
 		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public TerrainCell gettCell() {
+		return tCell;
+	}
+	public void settCell(TerrainCell tCell) {
+		this.tCell = tCell;
+	}
+	public boolean isInteractable(){
+		return interactiveness;
+	}
+	public void makeInteractible(){
+		interactiveness = true;
+	}
+	public void makeNonInteractible(){
+		interactiveness = false;
 	}
 }

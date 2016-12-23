@@ -12,6 +12,9 @@ public class BattleMap extends Map{
 		this.player = player;
 		this.enemies = enemies;
 	}
+	public BattleMap(){
+		super();
+	}
 	//getset
 	public Player getPlayer(){
 		return player;

@@ -8,7 +8,10 @@ public class Ogre extends Enemy{
 	}
 	//@Override
 	public static Enemy create(){
-		return new Ogre();
+		Ogre o = new Ogre();
+		o.setType("Enemy");
+		o.setName("Ogre");
+		return o;
 	}
 
 }

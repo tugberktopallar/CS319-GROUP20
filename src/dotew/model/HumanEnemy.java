@@ -8,7 +8,10 @@ public class HumanEnemy extends Enemy{
 	}
 	//@Override
 	public static Enemy create(){
-		return new HumanEnemy();
+		HumanEnemy e = new HumanEnemy();
+		e.setType("Enemy");
+		e.setName("Human Enemy");
+		return e;
 	}
 
 }

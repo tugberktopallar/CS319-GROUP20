@@ -16,6 +16,7 @@ public class Player extends CCharacter{
 	
 	private Player(){
 		super();
+		this.makeInteractible();
 		inventory = new Inventory();
 		level=1;
 		expPoints = 0;

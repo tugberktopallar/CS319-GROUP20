@@ -8,7 +8,10 @@ public class Ghoul extends Enemy{
 	}
 	//@Override
 	public static Enemy create(){
-		return new Ghoul();
+		Ghoul g = new Ghoul();
+		g.setType("Enemy");
+		g.setName("Ghoul");
+		return g;
 	}
 
 }
