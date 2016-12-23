@@ -1,5 +1,6 @@
 package dotew.model;
 import java.util.ArrayList;
+import dotew.controller.*;
 public class NPC extends GameObject{
 	private String name;
 	private ArrayList<String> scriptDialog;
@@ -7,6 +8,7 @@ public class NPC extends GameObject{
 	private TerrainCell zoneCell;
 	public NPC() {
 		super();
+		this.makeInteractible();
 	}
 	/*Searches questList of ownself, if there is any quest that 
 	  player hasn't done, adds the quest to the player's quest list 
@@ -23,7 +25,7 @@ public class NPC extends GameObject{
 		}
 	}
 	public void talk(){
-		//TODO: talk methodu rastgele bir þey mi söyletsin? yoksa interaktif bir þey mi?
+		GameEngine.getInstance(true, null,null).getConsoleResponder().giveResponse(scriptDialog.get(0));
 	}
 	public String getName() {
 		return name;
