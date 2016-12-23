@@ -89,7 +89,7 @@ public class MainMenu extends JPanel {
 		
 		
 		
-		this.add(lblLogo,gbcLogo);
+		
 	
 		
 		//add Buttons
@@ -115,7 +115,7 @@ public class MainMenu extends JPanel {
 		lblLogo.setBackground(new Color(0,true));
 //		lblLogo.setVisible(true);
 		
-		
+		this.add(lblLogo,gbcLogo);
 	}
 	
 	@Override
