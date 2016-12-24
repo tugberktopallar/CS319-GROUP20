@@ -1,6 +1,8 @@
 package dotew.controller;
 
 import java.util.ArrayList;
+
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import dotew.model.CCharacter;
@@ -17,14 +19,14 @@ import java.util.*;
 public class CommandInterpreter {
 
 	private Hashtable<String, Integer> commandLibrary;
-	private TextArea textBox;
+	private JTextField textBox;
 	private String currentCommand;
 	private GameEngine game;
 	private NPC npc;
 	private JTextField textBoxCommand;
 		
 	//constructor
-	CommandInterpreter(Hashtable<String, Integer> commandLibrary, TextArea textBox, String currentCommand, NPC npc){
+	CommandInterpreter(Hashtable<String, Integer> commandLibrary, JTextField textBox, String currentCommand, NPC npc){
 		this.commandLibrary = commandLibrary;
 		this.textBox = textBox;
 		this.currentCommand = currentCommand;
@@ -113,8 +115,8 @@ public class CommandInterpreter {
 		public void setCommandLibrary(Hashtable commandLibrary){
 			this.commandLibrary = commandLibrary;
 		}
-		public void setTextBox(TextArea textBox){
-			this.textBox = textBox;
+		public void setTextBox(JTextField jTextField){
+			this.textBox = jTextField;
 		}
 		public void setCurrentCommand(String currentCommand){
 			this.currentCommand = currentCommand;

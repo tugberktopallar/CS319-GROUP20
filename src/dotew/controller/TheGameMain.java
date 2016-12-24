@@ -43,6 +43,7 @@ public class TheGameMain {
 		GameScreen theGameScreen = new GameScreen();
 		addListenersTochrSelect(cardContainer, chrSelectionScreen, theGameScreen);
 		
+		
 		cardContainer.add(mainMenu, "MainMenu");
 		cardContainer.add(chrSelectionScreen,"CharacterSelect");
 		cardContainer.add(theGameScreen, "TheGameScreen");
@@ -58,6 +59,11 @@ public class TheGameMain {
 		frame.setVisible(true);
 		
 
+	}
+	
+	public static void setTextBoxex(GameScreen gameScreen, GameEngine gameEngine){
+		gameEngine.getConsoleResponder().setTextBox(gameScreen.getTxtBoxConsole());
+		gameEngine.getCommandInterpreter().setTextBox(gameScreen.getTxtBoxCommand());
 	}
 	
 	

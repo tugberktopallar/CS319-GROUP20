@@ -9,9 +9,9 @@ import java.awt.TextArea;
 
 public class ConsoleResponder {
 	private Hashtable<Integer, String> readyResponse;
-	private TextArea textBox;
+	private JTextArea textBox;
 	
-	ConsoleResponder(Hashtable<Integer, String> readyResponse, TextArea textBox){
+	ConsoleResponder(Hashtable<Integer, String> readyResponse, JTextArea textBox){
 		this.readyResponse = readyResponse;
 		this.textBox = textBox;
 	}
@@ -25,7 +25,7 @@ public class ConsoleResponder {
 	public Hashtable<Integer, String> getReadyResponse(){
 		return readyResponse;
 	}
-	public TextArea getTextBox(){
+	public JTextArea getTextBox(){
 		return textBox;
 	}
 	
@@ -33,8 +33,8 @@ public class ConsoleResponder {
 		this.readyResponse = readyResponse;
 	}
 	
-	public void setTextBox(TextArea textBox){
-		this.textBox = textBox;
+	public void setTextBox(JTextArea jTextArea){
+		this.textBox = jTextArea;
 	}
 	
 	public void giveResponseFrmLst(Integer tableKey){
