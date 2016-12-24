@@ -15,9 +15,15 @@ import dotew.model.Zone;
 
 public class MapManager {
 	
+	/**
+	 * 
+	 */
 	private Map currentMap;
 	
 	
+	/**
+	 * Initializes map for game
+	 */
 	public MapManager(){
 		//Creating demo map
 		TerrainCell [][] tCellList = new TerrainCell[6][6];
@@ -46,13 +52,24 @@ public class MapManager {
 	}
 	
 	//getset
+	/**
+	 * @return
+	 */
 	public Map getCurrentMap(){
 		return currentMap;
 	}
+	/**
+	 * @param currentMap
+	 */
 	public void setCurrentMap(Map currentMap){
 		this.currentMap = currentMap;
 	}
 	
+	/**
+	 * moves the player based on the direction name
+	 * @param direction : direction name
+	 * @param player : current player
+	 */
 	public void move(String direction, Player player){
 		int currentX=0, currentY=0, destinationX=0, destinationY=0;
 		//find current coordinates
@@ -103,6 +120,9 @@ public class MapManager {
 	
 	
 	
+	/**
+	 * @param currentBattle : battle map instance
+	 */
 	public void startBattle(BattleMap currentBattle){
 		this.currentMap = currentBattle;
 		

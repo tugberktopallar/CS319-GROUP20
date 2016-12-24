@@ -20,7 +20,13 @@ import dotew.view.MainMenu;
 
 public class TheGameMain {
 	
+	/**
+	 * 
+	 */
 	public static GameEngine gameEngine;
+	/**
+	 * 
+	 */
 	public static Player player;
 	public static GameScreen theGameScreen ;
 	public static JFrame frame;
@@ -28,6 +34,9 @@ public class TheGameMain {
 	
 	
 	//MAIN METHOD
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		System.out.println("Hello dotew!!");
 		 frame= new JFrame("Dread Of The Evil Wizard");
@@ -65,11 +74,20 @@ public class TheGameMain {
 
 	}
 	
+	/**
+	 * sets text boxes as console and command text boxes
+	 * @param gameScreen : game screen
+	 * @param gameEngine : instance of game engine 
+	 */
 	public static void setTextBoxex(GameScreen gameScreen, GameEngine gameEngine){
 		gameEngine.getConsoleResponder().setTextBox(gameScreen.getTxtBoxConsole());
 		gameEngine.getCommandInterpreter().setTextBox(gameScreen.getTxtBoxCommand());
 	}
 	
+	/**
+	 * gets command and give response accordingly
+	 * @param gs : game screen instance
+	 */
 	public static void addListenersToGame(GameScreen gs){
 //		gs.addKeyListener(new KeyListener() {
 //			
@@ -112,6 +130,10 @@ public class TheGameMain {
 	}
 	
 	
+	/**
+	 * @param parent : parent panel of current 
+	 * @param chrSelectionScreen
+	 */
 	public static void addListenersTochrSelect(JPanel parent, ChrSelection chrSelectionScreen){
 		
 		chrSelectionScreen.getSlctWarrior().addActionListener(new ActionListener() {
@@ -159,6 +181,10 @@ public class TheGameMain {
 		
 	}
 	
+	/**
+	 * @param parent : parent of panel
+	 * @param mainMenu : main menu view
+	 */
 	public static void addListenersToMain(JPanel parent,MainMenu mainMenu){
 		mainMenu.getBtnNewGame().addActionListener(new ActionListener() {
 			
