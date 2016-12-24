@@ -35,7 +35,9 @@ public class CommandInterpreter {
 		
 	public CommandInterpreter(JTextField textBoxCommand) {
 
-		this.textBoxCommand = null;
+		this.textBoxCommand = textBoxCommand;
+		this.currentCommand = null;
+		//TODO hashtable
 
 	}
 
