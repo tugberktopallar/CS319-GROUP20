@@ -17,8 +17,8 @@ public class ConsoleResponder {
 	}
 	
 	public ConsoleResponder(JTextArea textBox) {
-		// TODO Auto-generated constructor stub
-		//ready response interpreter lstesindeki keylere göre oluşturulup koda eklenecek
+		this.readyResponse = null;
+		this.textBox = textBox;
 	}
 
 	//getset
@@ -46,7 +46,7 @@ public class ConsoleResponder {
 	} 
 	
 	public void giveResponse(String response){
-		this.textBox.append(response);
+		this.textBox.append(response +"\n");
 	}
 	
 }

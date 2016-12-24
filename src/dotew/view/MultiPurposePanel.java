@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import dotew.controller.GameEngine;
 import dotew.model.TerrainCell;
 
 public class MultiPurposePanel extends JPanel {
@@ -24,34 +25,38 @@ public class MultiPurposePanel extends JPanel {
 	public MultiPurposePanel(TerrainCell [][]tCellList) {
 		this.tCellList = tCellList;
 		GridBagLayout layoutMain = new GridBagLayout();
-		GridBagConstraints gbcBtn = new GridBagConstraints();
-		gbcBtn.fill = GridBagConstraints.HORIZONTAL;
+		
 
 		System.out.println("multiPurpose");
 		
 		this.setLayout(layoutMain);
 		this.setPreferredSize(new Dimension(540,540));
+		this.updateLabels();
+	
+	 
 		
+	}
+	
+	public void updateLabels(){
+		this.removeAll();
 		TerrainLabel lblT;
+		GridBagConstraints gbcBtn = new GridBagConstraints();
 		
-		gbcBtn.gridx = 0;
-		gbcBtn.gridy = 0;
-		
+	
+
 		for (int i = 0; i < 6; i++) {
-			
+
 			for (int j = 0; j < 6; j++) {
 				lblT = new TerrainLabel(tCellList[i][j]);
-				  gbcBtn.weightx = 0.5;
+				gbcBtn.weightx = 0.5;
 				gbcBtn.fill = GridBagConstraints.HORIZONTAL;
 				gbcBtn.gridx =j;
 				gbcBtn.gridy = i;
 
-				add(lblT,gbcBtn);
-				System.out.println("new t cell added");
+				this.add(lblT,gbcBtn);
+
 			}
 		}
-	 
-		
 	}
 
 	public MultiPurposePanel(LayoutManager arg0) {
@@ -73,7 +78,15 @@ public class MultiPurposePanel extends JPanel {
 	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
 		super.paint(g);
-		System.out.println("multiPurpose panel draw");
+		
+	}
+	
+	@Override
+	public void repaint() {
+		// TODO Auto-generated method stub
+		this.settCellList(GameEngine.getInstance().getMapManager().getCurrentMap().getTerrainCellList());
+		this.updateLabels();
+		super.repaint();
 	}
 	
 

@@ -15,7 +15,10 @@ public class GameObject {
 	public boolean move(TerrainCell t){
 		
 		if(t!= null){
+			this.tCell.setGameObject(null);
 			this.tCell = t;
+			t.setGameObject(this);
+			System.out.println("player moved to: " + t.getPosition().getX() + t.getPosition().getY());
 			return true;
 		}
 		return false;
