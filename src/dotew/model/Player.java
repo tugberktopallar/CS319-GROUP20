@@ -1,7 +1,8 @@
 package dotew.model;
 import java.util.ArrayList;
 import dotew.model.Inventory;
-
+import dotew.controller.QuestManager;
+import dotew.controller.GameEngine;
 public class Player extends CCharacter{
 	private Inventory inventory;
 	private int level;
@@ -16,36 +17,26 @@ public class Player extends CCharacter{
 	
 	private Player(){
 		super();
+		//TODO: Class'i parametre alsak sonra onu set etsek ona göre startUp() methodu çaðýrsak?
 		//this.makeInteractible();
 		inventory = new Inventory();
 		level=1;
 		expPoints = 0;
 		equipments = new ArrayList<Item>();
+		
 		unfinishedQuests = new ArrayList<Quest>();
+		for(Quest q : GameEngine.getInstance().getQuestManager().getAllQuestsInTheGame()){
+			unfinishedQuests.add(q);
+		}
+		
 		activeQuests = new ArrayList<Quest>();
 		finishedQuests = new ArrayList<Quest>();
-		//TODO : unfinished Quest'lere eklemeler yapï¿½lacak(ilk baï¿½ta bï¿½tï¿½n questler unfinished)
-		expRequirements= new int[4]; //4 level olsun?
+		
+		expRequirements= new int[2]; //2 level olsun?
 		// playerx
 	}
-	public ArrayList<Quest> getUnfinishedQuests() {
-		return unfinishedQuests;
-	}
-	public void setUnfinishedQuests(ArrayList<Quest> unfinishedQuests) {
-		this.unfinishedQuests = unfinishedQuests;
-	}
-	public ArrayList<Quest> getActiveQuests() {
-		return activeQuests;
-	}
-	public void setActiveQuests(ArrayList<Quest> activeQuests) {
-		this.activeQuests = activeQuests;
-	}
-	public ArrayList<Quest> getFinishedQuests() {
-		return finishedQuests;
-	}
-	public void setFinishedQuests(ArrayList<Quest> finishedQuests) {
-		this.finishedQuests = finishedQuests;
-	}
+	
+	
 	public void clearAllStatusEffects(){
 		getTempEffectList().clear();
 	}
@@ -144,6 +135,7 @@ public class Player extends CCharacter{
 		super.setAttackDamage(baseDamageSum);
 		
 	}
+	
 	public static Player getInstance(){
 		if(player == null){
 			player = new Player();
@@ -153,6 +145,85 @@ public class Player extends CCharacter{
 			return player;
 	}
 	
+	//getter-setters
+	public ArrayList<Quest> getUnfinishedQuests() {
+		return unfinishedQuests;
+	}
+	public void setUnfinishedQuests(ArrayList<Quest> unfinishedQuests) {
+		this.unfinishedQuests = unfinishedQuests;
+	}
+	public ArrayList<Quest> getActiveQuests() {
+		return activeQuests;
+	}
+	public void setActiveQuests(ArrayList<Quest> activeQuests) {
+		this.activeQuests = activeQuests;
+	}
+	public ArrayList<Quest> getFinishedQuests() {
+		return finishedQuests;
+	}
+	public void setFinishedQuests(ArrayList<Quest> finishedQuests) {
+		this.finishedQuests = finishedQuests;
+	}
+
+
+	public Inventory getInventory() {
+		return inventory;
+	}
+
+
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
+	}
+
+
+	public int getLevel() {
+		return level;
+	}
+
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+
+	public int getExpPoints() {
+		return expPoints;
+	}
+
+
+	public void setExpPoints(int expPoints) {
+		this.expPoints = expPoints;
+	}
+
+
+	public ArrayList<Item> getEquipments() {
+		return equipments;
+	}
+
+
+	public void setEquipments(ArrayList<Item> equipments) {
+		this.equipments = equipments;
+	}
+
+
+	public int getEnemyKillCount() {
+		return enemyKillCount;
+	}
+
+
+	public void setEnemyKillCount(int enemyKillCount) {
+		this.enemyKillCount = enemyKillCount;
+	}
+
+
+	public int[] getExpRequirements() {
+		return expRequirements;
+	}
+
+
+	public void setExpRequirements(int[] expRequirements) {
+		this.expRequirements = expRequirements;
+	}
 }
 
 

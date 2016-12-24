@@ -9,14 +9,31 @@ import java.util.Iterator;
 		// stats[0] = Strength , stats[1] = Intelligence
 		// stats[2] = Dexterity, stats[3] = Constitution
 		//Class yok ClassGame var.
-		private int []stats;
+		private int []stats = new int[4];
 		private int health,stamina,mana,regenHp,regenMana,regenStamina;
 		private TerrainCell mapCell;
 		private ClassGame classOfCharacter;
 		private ArrayList<TemporaryEffect> tempEffectList;
 		private Zone currentZone;
 		private double armorValue,attackDamage;
-		
+		//this method initializes the starting stats of the character according to the class players chooses.
+		private void startUp(){
+			//base stats for everyone
+			for(int i = 0; i < 4; i++){
+				stats[i] = 5;
+			}
+			//TODO: const'u nasil yapcaz?
+			if(classOfCharacter.getClassName().equalsIgnoreCase("warrior")){
+				stats[0]+=2;
+			}
+			else if (classOfCharacter.getClassName().equalsIgnoreCase("mage")){
+				stats[1]+=3;
+			}
+			else if (classOfCharacter.getClassName().equalsIgnoreCase("rogue")){
+				stats[2] +=2;
+				stats[0] +=1;
+			}
+		}
 		
 		//Methods
 		public boolean isDead(){
