@@ -42,7 +42,7 @@ public class TerrainLabel extends JPanel {
 		}
 		
 		g.drawImage(img, 0, 0, new Color(0,true), this);
-		System.out.println("draw terrainbacground");
+		;
 		if(this.tCell.getGameObject() != null){
 			img = null;
 			try {
@@ -53,7 +53,7 @@ public class TerrainLabel extends JPanel {
 			}
 			
 			g.drawImage(img, 0, 0,new Color(0,true), this);
-			System.out.println("draw gameObject");
+			
 		}
 	}
 

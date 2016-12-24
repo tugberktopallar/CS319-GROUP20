@@ -2,6 +2,8 @@ package dotew.model;
 
 import java.util.ArrayList;
 
+import dotew.controller.GameEngine;
+
 public class BattleMap extends Map{
 	
 	private Player player;
@@ -14,6 +16,8 @@ public class BattleMap extends Map{
 	}
 	public BattleMap(){
 		super();
+		this.player = GameEngine.getInstance().getPlayer();
+		this.enemies = new Enemy[6];
 	}
 	//getset
 	public Player getPlayer(){

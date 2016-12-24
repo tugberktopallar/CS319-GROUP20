@@ -41,8 +41,9 @@ public class TheGameMain {
 		ChrSelection chrSelectionScreen = new ChrSelection();
 		
 		GameScreen theGameScreen = new GameScreen();
-		addListenersTochrSelect(cardContainer, chrSelectionScreen, theGameScreen);
+		addListenersTochrSelect(cardContainer, chrSelectionScreen);
 		gameEngine = GameEngine.getInstance();//(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
+		addListenersToGame(theGameScreen);
 		
 		cardContainer.add(mainMenu, "MainMenu");
 		cardContainer.add(chrSelectionScreen,"CharacterSelect");
@@ -66,8 +67,22 @@ public class TheGameMain {
 		gameEngine.getCommandInterpreter().setTextBox(gameScreen.getTxtBoxCommand());
 	}
 	
+	public static void addListenersToGame(GameScreen gs){
+		gs.getBtnEnter().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GameEngine.getInstance().getCommandInterpreter().checkSyntax(gs.getTxtBoxCommand().getText());
+				GameEngine.getInstance().getConsoleResponder().giveResponse("> " + gs.getTxtBoxCommand().getText());
+				gs.getTxtBoxCommand().setText("");
+				gs.repaint();
+				
+			}
+		});
+	}
 	
-	public static void addListenersTochrSelect(JPanel parent, ChrSelection chrSelectionScreen, GameScreen theGameScreen){
+	
+	public static void addListenersTochrSelect(JPanel parent, ChrSelection chrSelectionScreen){
 		chrSelectionScreen.getSlctWarrior().addActionListener(new ActionListener() {
 			
 			@Override

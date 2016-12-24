@@ -1,5 +1,6 @@
 package dotew.controller;
 
+import dotew.model.BattleStarter;
 import dotew.model.CCharacter;
 import dotew.model.TerrainCell;
 import dotew.model.NPC;
@@ -7,7 +8,7 @@ import dotew.model.GameObject;
 public class CollisionHandler {
 	//TODO: is ve handle methodlarýný private yap
 	public static boolean isCollisionNPC(CCharacter c1, TerrainCell tCell){
-		if(((GameObject) c1).getType().substring(0,3).equalsIgnoreCase("npc")){
+		if(tCell.getGameObject().getType().substring(0,3).equalsIgnoreCase("npc")){
 			return handleCollisionNPC(c1,tCell);
 		}
 		else 
@@ -25,6 +26,8 @@ public class CollisionHandler {
 		}
 		//it means cell is blocked by 1)Block or 2)NPC or 3)BattleStarter(for Zone) or 4)Enemy(for BattleMap)
 		else{
+			if(tCell.getGameObject() !=null)
+				System.out.println("game object exists");
 			if(!(tCell.getGameObject().isInteractable()))
 			{
 				handleCollisionBlock(charr1,tCell);
@@ -65,7 +68,7 @@ public class CollisionHandler {
 			return false;
 	}
 	private static boolean handleCollisionBattle(CCharacter c1,TerrainCell tCell){
-		//TODO: start a battle
+		GameEngine.getInstance().startBattle(((BattleStarter) tCell.getGameObject()).startBattle());
 		return true;
 	}
 	//This is for battleMap
@@ -78,6 +81,7 @@ public class CollisionHandler {
 	//this is for zone
 	private static boolean isCollisionBattle(CCharacter c1,TerrainCell tCell){
 		if((tCell.getGameObject().getType().equalsIgnoreCase("battlestarter"))){
+			System.out.println("Battle starter detected");
 			return true;
 		}
 		return false;

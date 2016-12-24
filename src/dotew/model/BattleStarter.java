@@ -76,6 +76,7 @@ public class BattleStarter extends GameObject{
 	
 	private BattleMap createBattleMap(Player p1,Enemy[] enemyList,TerrainCell[][] tCellList){
 		//TODO: draw kismi.
+		System.out.println("create battle");
 		BattleMap bm = new BattleMap();
 		try{
 			bm.addCharacter(p1);

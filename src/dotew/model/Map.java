@@ -13,7 +13,8 @@ public abstract class Map {
 	}
 	
 	public Map(){
-		
+		this.terrainCellList = 	null;
+		this.characterList = new ArrayList<CCharacter>();
 	}
 	public void draw(){
 		//GUI implementation

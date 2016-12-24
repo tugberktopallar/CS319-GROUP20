@@ -140,7 +140,7 @@ public class GameEngine {
 	}
 	
 	public void move(String direction){
-		//this.mapManager.move(direction,this.player);
+		this.mapManager.move(direction,this.player);
 			
 	}
 	
@@ -159,7 +159,7 @@ public class GameEngine {
 	}
 	public void startBattle(BattleMap battleMap){
 		this.battleManager = createBattleManager(battleMap);
-		this.player.setMapCell(battleMap.getTerrainCellList()[5][3]);
+		this.mapManager.startBattle(battleMap);
 	}
 	
 	public void changeToMapView(){
