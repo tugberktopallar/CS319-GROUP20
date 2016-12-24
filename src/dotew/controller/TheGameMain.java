@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 import dotew.model.ClassGame;
 import dotew.model.Player;
+import dotew.utilities.UIUtil;
 import dotew.view.ChrSelection;
 import dotew.view.GameScreen;
 import dotew.view.MainMenu;
@@ -22,14 +23,14 @@ public class TheGameMain {
 	public static GameEngine gameEngine;
 	public static Player player;
 	public static GameScreen theGameScreen ;
-	
+	public static JFrame frame;
 	
 	
 	
 	//MAIN METHOD
 	public static void main(String[] args) {
 		System.out.println("Hello dotew!!");
-		JFrame frame = new JFrame("Dread Of The Evil Wizard");
+		 frame= new JFrame("Dread Of The Evil Wizard");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1280, 720);
 		
@@ -173,7 +174,7 @@ public class TheGameMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				UIUtil.showMsgBox(frame, "Sorry, Not Done Yet :S", "We are very sorry but this feature is not implemented just yet...");
 				
 			}
 		});
@@ -182,7 +183,7 @@ public class TheGameMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				UIUtil.showMsgBox(frame, "Sorry, Not Done Yet :S", "We are very sorry but this feature is not implemented just yet...");
 				
 			}
 		});
@@ -191,7 +192,8 @@ public class TheGameMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				UIUtil.showMsgBox(frame, "Credits", "Utku Oymak \n\n Ilteber Ayvaci \n\n Afra Domeke \n\n Tugberk Topallar");
+				
 				
 			}
 		});
