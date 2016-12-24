@@ -32,6 +32,9 @@ public class TerrainCell {
 	
 	public void setGameObject(GameObject gameObject){
 		this.gameObject = gameObject;
+		if(gameObject !=null){
+			setIsBlocked(true);
+		}
 	}
 	
 	public void setPosition(Point position){

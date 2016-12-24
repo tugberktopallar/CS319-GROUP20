@@ -1,11 +1,11 @@
 package dotew.model;
 
 public class EnemyFactory {
-	private EnemyFactory instance;
+	private static EnemyFactory instance;
 	private EnemyFactory(){
 		
 	}
-	public EnemyFactory getInstance(){
+	public static EnemyFactory getInstance(){
 		if(instance == null){
 			instance = new EnemyFactory();
 			return instance;

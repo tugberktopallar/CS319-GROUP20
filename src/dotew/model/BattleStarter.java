@@ -1,5 +1,10 @@
 package dotew.model;
 
+import java.awt.Point;
+import java.util.ArrayList;
+
+import dotew.controller.GameEngine;
+
 public class BattleStarter extends GameObject{
 	private BattleMap battleMapReference;
 	//private BattleFactory battlefact;
@@ -31,9 +36,46 @@ public class BattleStarter extends GameObject{
 		
 	}*/
 	
+	
+	public BattleMap startBattle(){
+		TerrainCell [][]tCellList = new TerrainCell[6][6];
+		TerrainCell tCell = null;
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				tCell = new TerrainCell(false, null, new Point(i, j));
+				tCellList[i][j] = tCell;
+			}
+			
+		}
+		EnemyFactory ef = EnemyFactory.getInstance();
+		Enemy e1 = ef.getEnemy("o");
+		Enemy e2 = ef.getEnemy("o");
+		
+		e1.settCell(tCellList[0][0]);
+		tCellList[0][0].setGameObject(e1);
+		
+		e2.settCell(tCellList[3][0]);
+		tCellList[3][0].setGameObject(e2);
+		
+		Player p = GameEngine.getInstance().getPlayer();
+		p.setMapCell(tCellList[5][3]);
+		tCellList[5][3].setGameObject(p);
+		
+		Enemy[] chrList = new Enemy[2];
+		
+		chrList[0] = e1;
+		chrList[1] = e2;
+		
+		return createBattleMap(p, chrList, tCellList);
+		
+		
+		
+		
+	}
+	
 	private BattleMap createBattleMap(Player p1,Enemy[] enemyList,TerrainCell[][] tCellList){
 		//TODO: draw kismi.
-		Map bm = new BattleMap();
+		BattleMap bm = new BattleMap();
 		try{
 			bm.addCharacter(p1);
 			bm.addCharacters(enemyList);
