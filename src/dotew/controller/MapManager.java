@@ -66,6 +66,6 @@ public class MapManager {
 	
 	public void startBattle(BattleMap currentBattle){
 		this.currentMap = currentBattle;
-		CollisionHandler.checkForCollision(currentBattle.getPlayer(), currentBattle.getPlayer().getMapCell());
+		
 	}
 }
