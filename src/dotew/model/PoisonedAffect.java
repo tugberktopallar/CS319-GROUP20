@@ -1,19 +1,35 @@
 package dotew.model;
 
+
+/**
+ * @author Cabbar
+ *
+ */
 public class PoisonedAffect extends TemporaryEffect {
 
 	
+	/**
+	 *  duration is 3 turns
+	 */
 	public PoisonedAffect() {
 		super(3);
 		
 	}
 	
 	
+	/**
+	 * @param duration
+	 */
 	public PoisonedAffect(int duration) {
 		super(duration);
 		// TODO Auto-generated constructor stub
 	}
 
+
+	/* (non-Javadoc)
+	 * @see dotew.model.TemporaryEffect#applyEffect(dotew.model.CCharacter)
+	 * decreases dexterity by 2. 
+	 */
 	@Override
 	boolean applyEffect(CCharacter c1) {
 		if(getDuration() == 3){

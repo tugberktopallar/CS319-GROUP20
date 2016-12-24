@@ -3,18 +3,54 @@ import java.util.ArrayList;
 import dotew.model.Inventory;
 import dotew.controller.QuestManager;
 import dotew.controller.GameEngine;
+/**
+ *
+ */
 public class Player extends CCharacter{
+	/**
+	 * inventory of the player
+	 */
 	private Inventory inventory;
+	/**
+	 * level of the player
+	 */
 	private int level;
+	/**
+	 * experience points of the player
+	 */
 	private int expPoints;
+	/**
+	 * the list of items that player equipped
+	 */
 	private ArrayList<Item> equipments;
+	/**
+	 * the list of unfinished quests 
+	 */
 	private ArrayList<Quest> unfinishedQuests;
+	/**
+	 * list of active quests(not finished but taken)
+	 */
 	private ArrayList<Quest> activeQuests;
+	/**
+	 * list of finished quests
+	 */
 	private ArrayList<Quest> finishedQuests;
+	/**
+	 * total kill count of the player
+	 */
 	private int enemyKillCount;
+	/**
+	 * player instance
+	 */
 	private static Player player;
+	/**
+	 * exp requirements for each level
+	 */
 	private int [] expRequirements;
 	
+	/**
+	 * constructor creates empty inventory, equipments,questslist,expRequirements array. Makes level = 1 and sets weight limit to str*10
+	 */
 	private Player(){
 		super();
 		//TODO: Class'i parametre alsak sonra onu set etsek ona göre startUp() methodu çaðýrsak?
@@ -39,9 +75,16 @@ public class Player extends CCharacter{
 	}
 	
 	
+	/**
+	 * clears all temporary effects of the player
+	 */
 	public void clearAllStatusEffects(){
 		getTempEffectList().clear();
 	}
+	/**
+	 * @param stat : stat to be changed
+	 * @param amount : amount of stat to change
+	 */
 	public void changeTemporaryStat(String stat, int amount){
 		if(stat.equalsIgnoreCase("Strength"))
 		{
@@ -58,6 +101,9 @@ public class Player extends CCharacter{
 		}
 		//burada bilmemkaï¿½ turn sonra nasï¿½l adamï¿½n statï¿½nï¿½ eski hale koyacaï¿½ï¿½z?
 	}
+	/**
+	 * increments level and makes exp points = 0 and increases stats by 10
+	 */
 	public void levelUp(){
 		if(level <=3){
 			level++;
@@ -70,6 +116,9 @@ public class Player extends CCharacter{
 		this.inventory.setWeightLimit(this.getStr()*10);
 	}
 	
+	/**
+	 * @param exp : experience point to be added
+	 */
 	public void addExp(int exp){
 		if(exp>=0){
 			expPoints += exp;
@@ -80,7 +129,12 @@ public class Player extends CCharacter{
 			}
 		}
 	}
-	//Item'a type ve name eklenecek
+	
+	/**
+	 * Equips item if it is on the inventory and it is not equipped yet. 
+	 * @param toBeEquipped : Item to be equipped 
+	 * @return result of equipping item
+	 */
 	public boolean equipItem(Item toBeEquipped){
 		String typeToBe,typeCurrently;
 		boolean equipped = false;
@@ -112,11 +166,19 @@ public class Player extends CCharacter{
 	
 			
 	}
+	/**
+	 * displays inventory
+	 */
 	public void displayInventory(){
 		//		System.out.println(inventory);
 		//TODO o konsol bu konsol degil abi. compilerin konsolunu kullanmiyoruz!!!!
 		//oke
 	}
+	/**
+	 * finds item on inventory
+	 * @param itemName: item to be found
+	 * @return
+	 */
 	public Item findItem(String itemName){
 		for(Item it : inventory.getItemList()){
 			if(it.getName().equalsIgnoreCase(itemName))
@@ -125,7 +187,10 @@ public class Player extends CCharacter{
 		return null;
 	}
 	//type = Weapon,Armor
-	//baseStrength yaptï¿½k, onun iï¿½in CCharacter'e strength setter'ï¿½ konacak.
+	//
+	/**
+	 * updates Attack and armor values, used after each equipment operation
+	 */
 	public void updateAttackArmorValue(){
 		double baseDamageSum = 0,baseArmorProtectionSum = 0;
 		int baseStrengthSum = 0;
@@ -143,6 +208,10 @@ public class Player extends CCharacter{
 		
 	}
 	
+	/**
+	 * this class is singleton
+	 * @return player object.
+	 */
 	public static Player getInstance(){
 		if(player == null){
 			player = new Player();
@@ -153,81 +222,135 @@ public class Player extends CCharacter{
 	}
 	
 	//getter-setters
+	/**
+	 * @return
+	 */
 	public ArrayList<Quest> getUnfinishedQuests() {
 		return unfinishedQuests;
 	}
+	/**
+	 * @param unfinishedQuests
+	 */
 	public void setUnfinishedQuests(ArrayList<Quest> unfinishedQuests) {
 		this.unfinishedQuests = unfinishedQuests;
 	}
+	/**
+	 * @return
+	 */
 	public ArrayList<Quest> getActiveQuests() {
 		return activeQuests;
 	}
+	/**
+	 * @param activeQuests
+	 */
 	public void setActiveQuests(ArrayList<Quest> activeQuests) {
 		this.activeQuests = activeQuests;
 	}
+	/**
+	 * @return
+	 */
 	public ArrayList<Quest> getFinishedQuests() {
 		return finishedQuests;
 	}
+	/**
+	 * @param finishedQuests
+	 */
 	public void setFinishedQuests(ArrayList<Quest> finishedQuests) {
 		this.finishedQuests = finishedQuests;
 	}
 
 
+	/**
+	 * @return
+	 */
 	public Inventory getInventory() {
 		return inventory;
 	}
 
 
+	/**
+	 * @param inventory
+	 */
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
 	}
 
 
+	/**
+	 * @return
+	 */
 	public int getLevel() {
 		return level;
 	}
 
 
+	/**
+	 * @param level
+	 */
 	public void setLevel(int level) {
 		this.level = level;
 	}
 
 
+	/**
+	 * @return
+	 */
 	public int getExpPoints() {
 		return expPoints;
 	}
 
 
+	/**
+	 * @param expPoints
+	 */
 	public void setExpPoints(int expPoints) {
 		this.expPoints = expPoints;
 	}
 
 
+	/**
+	 * @return
+	 */
 	public ArrayList<Item> getEquipments() {
 		return equipments;
 	}
 
 
+	/**
+	 * @param equipments
+	 */
 	public void setEquipments(ArrayList<Item> equipments) {
 		this.equipments = equipments;
 	}
 
 
+	/**
+	 * @return
+	 */
 	public int getEnemyKillCount() {
 		return enemyKillCount;
 	}
 
 
+	/**
+	 * @param enemyKillCount
+	 */
 	public void setEnemyKillCount(int enemyKillCount) {
 		this.enemyKillCount = enemyKillCount;
 	}
 
 
+	/**
+	 * @return
+	 */
 	public int[] getExpRequirements() {
 		return expRequirements;
 	}
 
 
+	/**
+	 * @param expRequirements
+	 */
 	public void setExpRequirements(int[] expRequirements) {
 		this.expRequirements = expRequirements;
 	}

@@ -8,6 +8,11 @@ public class Warrior2Skill extends Skill {
 		setTempEffect(null);
 	}
 
+	/* (non-Javadoc)
+	 * @see dotew.model.Skill#applySkill(dotew.model.CCharacter, dotew.model.CCharacter)
+	 * 
+	 * This skill consumes 20 stamina, hits with damage : attackDamage*3
+	 */
 	@Override
 	public boolean applySkill(CCharacter c1, CCharacter c2) {
 		if(c1.getStamina() < 20){

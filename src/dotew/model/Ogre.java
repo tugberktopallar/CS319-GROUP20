@@ -7,6 +7,9 @@ public class Ogre extends Enemy{
 		// TODO reward,dialog,item, level vs. Bi de level iþini nasýl hallederiz?
 	}
 	//@Override
+		/**
+		 * @return This method creates a new ogre Enemy , sets the type of Gameobject to enemy and name of the Gameobject to ogre  
+		 */
 	public static Enemy create(){
 		Ogre o = new Ogre();
 		o.setType("Enemy");

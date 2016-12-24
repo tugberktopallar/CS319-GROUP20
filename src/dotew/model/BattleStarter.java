@@ -5,9 +5,19 @@ import java.util.ArrayList;
 
 import dotew.controller.GameEngine;
 
+/**
+ * @author ilteber
+ *
+ */
 public class BattleStarter extends GameObject{
+	/**
+	 * 
+	 */
 	private BattleMap battleMapReference;
 	//private BattleFactory battlefact;
+	/**
+	 * 
+	 */
 	public BattleStarter(){
 		super();
 		this.setType("battlestarter");
@@ -18,26 +28,13 @@ public class BattleStarter extends GameObject{
 		
 	}*/
 	
-	/*
-	 * Reads the Enemy Information  stored in the text file with given filename
-	 * Contens of the textFile is like:
-	 * Number of Enemies
-	 * The path of the battleMap background image.
-	 * Enemy Type1
-	 * Enemy class1
-	 * Enemy level1
-	 * EnemyType2
-	 * Enemyclass2
-	 * Enemytype2
-	 * ...and So on.
+
+	
+	
+	/**
+	 * @return battleMap, The map of battle, once player hits battlestarter object, a battle is started and a new 
+	 * 6x6 battlemap is created. It contains player and the enemies of the player
 	 */
-	//bu adam terraincell list döndürsün bari :(
-	
-	/*private String[] readFile(String fname){
-		
-	}*/
-	
-	
 	public BattleMap startBattle(){
 		TerrainCell [][]tCellList = new TerrainCell[6][6];
 		
@@ -74,6 +71,13 @@ public class BattleStarter extends GameObject{
 		
 	}
 	
+	/**
+	 * @param p1 : This is the player
+	 * @param enemyList: This is the enemies that player will fight at that battle
+	 * @param tCellList: This is the list of cells of the battleMap. Each battleMap contains cells and each cell contains 
+	 * a gameObject like enemy,player etc.
+	 * @return
+	 */
 	private BattleMap createBattleMap(Player p1,Enemy[] enemyList,TerrainCell[][] tCellList){
 		//TODO: draw kismi.
 		System.out.println("create battle");
