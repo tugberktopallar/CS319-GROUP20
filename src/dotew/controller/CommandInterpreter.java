@@ -15,14 +15,38 @@ import java.util.*;
 
 public class CommandInterpreter {
 
+	/**
+	 * 
+	 */
 	private Hashtable<String, Integer> commandLibrary;
+	/**
+	 * 
+	 */
 	private JTextField textBox;
+	/**
+	 * 
+	 */
 	private String currentCommand;
+	/**
+	 * 
+	 */
 	private GameEngine game;
+	/**
+	 * 
+	 */
 	private NPC npc;
+	/**
+	 * 
+	 */
 	private JTextField textBoxCommand;
 		
 	//constructor
+	/**
+	 * @param commandLibrary : a command library which has previously determined commands
+	 * @param textBox : text box where users are able to write 
+	 * @param currentCommand : current command written by user
+	 * @param npc : npc object used for getting previously determined quests
+	 */
 	CommandInterpreter(Hashtable<String, Integer> commandLibrary, JTextField textBox, String currentCommand, NPC npc){
 		this.commandLibrary = commandLibrary;
 		this.textBox = textBox;
@@ -30,6 +54,11 @@ public class CommandInterpreter {
 		this.npc = npc;
 	}
 		
+	/**
+	 * creates a hashtable for command library
+	 * 
+	 * @param textBoxCommand : textBoxCommand used for getting commands
+	 */
 	public CommandInterpreter(JTextField textBoxCommand) {
 
 		this.textBoxCommand = textBoxCommand;
@@ -53,6 +82,11 @@ public class CommandInterpreter {
 
 	}
 
+	/**
+	 * changes command's letters to lower case, delete the blank spaces and send the result to the match command function
+	 * 
+	 * @param command : command that users write 
+	 */
 	public void checkSyntax(String command){
 		
 	String chName = "";
@@ -90,6 +124,13 @@ public class CommandInterpreter {
 		matchCommand(command.replaceAll("\\s+",""), -1, null);			
 	}
 		
+	/**
+	 * matches commands with the hashtable values and apply methods accordingly
+	 * 
+	 * @param str : action name
+	 * @param index : the index of the enemy name in the command if exists 
+	 * @param skill :  the skill name user wants to apply
+	 */
 	public void matchCommand(String str, int index, String skill){
   
 
@@ -194,6 +235,9 @@ public class CommandInterpreter {
 		}
 
 		
+		/**
+		 * gets command from textBox
+		 */
 		public void getCommandFrmTextBox(){
 
 			currentCommand = this.textBox.getText();				
@@ -201,16 +245,28 @@ public class CommandInterpreter {
 		
 		//getset
 		
+		/**
+		 * @return : returns the current command
+		 */
 		public String GetCurrentCommand(){
 			return currentCommand;
 		}
 		
+		/**
+		 * @param commandLibrary : sets the commandLibrary
+		 */
 		public void setCommandLibrary(Hashtable commandLibrary){
 			this.commandLibrary = commandLibrary;
 		}
+		/**
+		 * @param jTextField : sets the text box
+		 */
 		public void setTextBox(JTextField jTextField){
 			this.textBox = jTextField;
 		}
+		/**
+		 * @param currentCommand : sets the current command
+		 */
 		public void setCurrentCommand(String currentCommand){
 			this.currentCommand = currentCommand;
 		}
