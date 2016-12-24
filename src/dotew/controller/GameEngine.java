@@ -160,6 +160,7 @@ public class GameEngine {
 	public void startBattle(BattleMap battleMap){
 		this.battleManager = createBattleManager(battleMap);
 		this.mapManager.startBattle(battleMap);
+		TheGameMain.theGameScreen.getMultiPurpose().enterWar();
 	}
 	
 	public void changeToMapView(){

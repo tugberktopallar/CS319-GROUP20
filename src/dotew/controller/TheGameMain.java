@@ -3,6 +3,8 @@ package dotew.controller;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,7 +21,7 @@ public class TheGameMain {
 	
 	public static GameEngine gameEngine;
 	public static Player player;
-	
+	public static GameScreen theGameScreen ;
 	
 	
 	
@@ -40,7 +42,7 @@ public class TheGameMain {
 		
 		ChrSelection chrSelectionScreen = new ChrSelection();
 		
-		GameScreen theGameScreen = new GameScreen();
+		theGameScreen = new GameScreen();
 		addListenersTochrSelect(cardContainer, chrSelectionScreen);
 		gameEngine = GameEngine.getInstance();//(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
 		addListenersToGame(theGameScreen);
@@ -68,12 +70,39 @@ public class TheGameMain {
 	}
 	
 	public static void addListenersToGame(GameScreen gs){
+//		gs.addKeyListener(new KeyListener() {
+//			
+//			@Override
+//			public void keyTyped(KeyEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//			
+//			@Override
+//			public void keyReleased(KeyEvent e) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//			
+//			@Override
+//			public void keyPressed(KeyEvent e) {
+//				if(e.getKeyCode() == KeyEvent.VK_ENTER){
+//					GameEngine.getInstance().getCommandInterpreter().checkSyntax(gs.getTxtBoxCommand().getText());
+//					GameEngine.getInstance().getConsoleResponder().giveResponse("> " + gs.getTxtBoxCommand().getText());
+//					gs.getTxtBoxCommand().setText("");
+//					gs.repaint();
+//				}
+//				
+//			}
+//		});
+		
 		gs.getBtnEnter().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				GameEngine.getInstance().getCommandInterpreter().checkSyntax(gs.getTxtBoxCommand().getText());
 				GameEngine.getInstance().getConsoleResponder().giveResponse("> " + gs.getTxtBoxCommand().getText());
+				
 				gs.getTxtBoxCommand().setText("");
 				gs.repaint();
 				
@@ -83,6 +112,7 @@ public class TheGameMain {
 	
 	
 	public static void addListenersTochrSelect(JPanel parent, ChrSelection chrSelectionScreen){
+		
 		chrSelectionScreen.getSlctWarrior().addActionListener(new ActionListener() {
 			
 			@Override

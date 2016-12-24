@@ -26,27 +26,30 @@ public class CollisionHandler {
 		}
 		//it means cell is blocked by 1)Block or 2)NPC or 3)BattleStarter(for Zone) or 4)Enemy(for BattleMap)
 		else{
-			if(tCell.getGameObject() !=null)
+			if(tCell.getGameObject() !=null){
 				System.out.println("game object exists");
-			if(!(tCell.getGameObject().isInteractable()))
-			{
-				handleCollisionBlock(charr1,tCell);
-			}
-			
-			else if(isCollisionNPC(charr1,tCell)){
-				//TODO: "You have encountered " +((NPC)(tCell.getGameObject())).getName() yazdýr.
-				handleCollisionNPC(charr1,tCell);
-			
-			}
-			else if (isCollisionBattle(charr1,tCell)){
+				if(!(tCell.getGameObject().isInteractable()))
+				{
+					handleCollisionBlock(charr1,tCell);
+				}
 				
-				handleCollisionBattle(charr1,tCell);
+				else if(isCollisionNPC(charr1,tCell)){
+					//TODO: "You have encountered " +((NPC)(tCell.getGameObject())).getName() yazdýr.
+					handleCollisionNPC(charr1,tCell);
 				
+				}
+				else if (isCollisionBattle(charr1,tCell)){
+					
+					handleCollisionBattle(charr1,tCell);
+					
+				}
+				else if(isCollisionEnemy(charr1,tCell)){
+					handleCollisionEnemy(charr1,tCell);
+				}
+				return true;
 			}
-			else if(isCollisionEnemy(charr1,tCell)){
-				handleCollisionEnemy(charr1,tCell);
-			}
-			return true;
+			return false;
+		
 		}
 	}
 	//NPC ile nasýl bir talk sessionu oluþturacaðýz? talk methodu input alýp vermeli mi?

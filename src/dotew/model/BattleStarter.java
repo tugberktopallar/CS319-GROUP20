@@ -40,11 +40,11 @@ public class BattleStarter extends GameObject{
 	
 	public BattleMap startBattle(){
 		TerrainCell [][]tCellList = new TerrainCell[6][6];
-		TerrainCell tCell = null;
+		
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
-				tCell = new TerrainCell(false, null, new Point(i, j));
-				tCellList[i][j] = tCell;
+				tCellList[i][j] = new TerrainCell(false, null, new Point(i, j));
+			
 			}
 			
 		}
@@ -87,7 +87,7 @@ public class BattleStarter extends GameObject{
 			ex.printStackTrace();
 			bm = null;
 		}
-			return (BattleMap) bm;
+			return  bm;
 		
 		
 	}

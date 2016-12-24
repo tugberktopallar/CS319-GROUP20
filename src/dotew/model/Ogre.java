@@ -11,6 +11,7 @@ public class Ogre extends Enemy{
 		Ogre o = new Ogre();
 		o.setType("Enemy");
 		o.setName("Ogre");
+		o.setIconName("OgreTexture.png");
 		return o;
 	}
 

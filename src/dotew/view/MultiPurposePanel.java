@@ -31,14 +31,6 @@ public class MultiPurposePanel extends JPanel {
 		
 		this.setLayout(layoutMain);
 		this.setPreferredSize(new Dimension(540,540));
-		this.updateLabels();
-	
-	 
-		
-	}
-	
-	public void updateLabels(){
-		this.removeAll();
 		TerrainLabel lblT;
 		GridBagConstraints gbcBtn = new GridBagConstraints();
 		
@@ -47,13 +39,46 @@ public class MultiPurposePanel extends JPanel {
 		for (int i = 0; i < 6; i++) {
 
 			for (int j = 0; j < 6; j++) {
-				lblT = new TerrainLabel(tCellList[i][j]);
+				lblT = new TerrainLabel(this.tCellList[i][j]);
 				gbcBtn.weightx = 0.5;
 				gbcBtn.fill = GridBagConstraints.HORIZONTAL;
 				gbcBtn.gridx =j;
 				gbcBtn.gridy = i;
+				
+				
+				this.add(lblT, gbcBtn);
+				
 
-				this.add(lblT,gbcBtn);
+			}
+		}
+	
+	 
+		
+	}
+	
+	public void updateLabels(){
+		
+//		GridBagLayout layoutMain = new GridBagLayout();
+//		this.setLayout(layoutMain);
+//		this.setPreferredSize(new Dimension(540,540));
+		
+		TerrainLabel lblT;
+		GridBagConstraints gbcBtn = new GridBagConstraints();
+		
+	
+
+		for (int i = 0; i < 6; i++) {
+
+			for (int j = 0; j < 6; j++) {
+				lblT = new TerrainLabel(this.tCellList[i][j]);
+				gbcBtn.weightx = 0.5;
+				gbcBtn.fill = GridBagConstraints.HORIZONTAL;
+				gbcBtn.gridx =j;
+				gbcBtn.gridy = i;
+				
+				this.remove((i*j) + j);
+				this.add(lblT, gbcBtn,(i*j) + j);
+				
 
 			}
 		}
@@ -77,15 +102,23 @@ public class MultiPurposePanel extends JPanel {
 	@Override
 	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
+		//this.settCellList(GameEngine.getInstance().getMapManager().getCurrentMap().getTerrainCellList());
+		
 		super.paint(g);
 		
+	}
+	
+	public void enterWar(){
+		this.settCellList(GameEngine.getInstance().getMapManager().getCurrentMap().getTerrainCellList());
+		this.updateLabels();
+		this.repaint();
 	}
 	
 	@Override
 	public void repaint() {
 		// TODO Auto-generated method stub
-		this.settCellList(GameEngine.getInstance().getMapManager().getCurrentMap().getTerrainCellList());
-		this.updateLabels();
+//		this.settCellList(GameEngine.getInstance().getMapManager().getCurrentMap().getTerrainCellList());
+//		this.updateLabels();
 		super.repaint();
 	}
 	
