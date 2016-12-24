@@ -1,11 +1,11 @@
 package dotew.controller;
 
+import dotew.model.BattleMap;
 import dotew.model.CCharacter;
 import dotew.model.Map;
-import dotew.model.TerrainCell;
 
 public class MapManager {
-	//TODO:
+	
 	private Map currentMap;
 	
 	//getset
@@ -14,22 +14,6 @@ public class MapManager {
 	}
 	public void setCurrentMap(Map currentMap){
 		this.currentMap = currentMap;
-	}
-	
-	public void loadMap(){
-		
-	}
-	
-	public void createMonsters(){
-		
-	}
-	
-	public void createPlayer(){
-		
-	}
-	
-	public void createNPCandTerrain(){
-		
 	}
 	
 	public void move(String direction, CCharacter player){
@@ -76,15 +60,12 @@ public class MapManager {
 		}	
 	}
 	
-	public void spawnMonsters(){
-		
-	}
-	
 	public void drawMap(){
-		
+		//TODO
 	}
 	
-	public void startBattle(){
-		
+	public void startBattle(BattleMap currentBattle){
+		this.currentMap = currentBattle;
+		CollisionHandler.checkForCollision(currentBattle.getPlayer(), currentBattle.getPlayer().getMapCell());
 	}
 }
