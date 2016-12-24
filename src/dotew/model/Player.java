@@ -62,6 +62,10 @@ public class Player extends CCharacter{
 			level++;
 			expPoints = 0;
 		}
+		this.increaseOrDecreaseStrength(2);
+		this.increaseOrDecreaseDexterity(2);
+		this.increaseOrDecreaseIntelligence(2);
+		this.increaseOrDecreaseConstitution(2);
 	}
 	
 	public void addExp(int exp){
