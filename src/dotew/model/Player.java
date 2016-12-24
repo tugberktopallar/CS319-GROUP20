@@ -35,6 +35,7 @@ public class Player extends CCharacter{
 		
 		expRequirements= new int[2]; //2 level olsun?
 		// playerx
+		this.inventory.setWeightLimit(this.getStr()*10);
 	}
 	
 	
@@ -66,6 +67,7 @@ public class Player extends CCharacter{
 		this.increaseOrDecreaseDexterity(2);
 		this.increaseOrDecreaseIntelligence(2);
 		this.increaseOrDecreaseConstitution(2);
+		this.inventory.setWeightLimit(this.getStr()*10);
 	}
 	
 	public void addExp(int exp){
