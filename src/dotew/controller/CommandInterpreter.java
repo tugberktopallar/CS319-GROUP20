@@ -51,20 +51,20 @@ public class CommandInterpreter {
 	if(command.substring(0 , 7).equals("attack")){
 		chName = command.substring(7, command.length());
 
-		matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName));
+		matchCommand("attack", game.getBattleManager().getCharacterList().indexOf(chName),null);
 	}
 		
 		//applyskill method, determines enemy index, skill name
-//		if(command.substring(0 , 10).equals("applyskill")){
-//			text = command.split(" ");
-//			return matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]), (Skill)text[2]);
-//		}	
+		if(command.substring(0 , 10).equals("applyskill")){
+			text = command.split(" ");
+			return matchCommand("applyskill", game.getBattleManager().getCharacterList().indexOf(text[1]), text[2]);
+		}	
 			
 		//for other methods
-		matchCommand(command.replaceAll("\\s+",""), -1);			
+		matchCommand(command.replaceAll("\\s+",""), -1, null);			
 	}
 		
-	public void matchCommand(String str, int index){
+	public void matchCommand(String str, int index, String skill){
   
 
 		   Integer n = commandLibrary.get(str);
@@ -88,6 +88,13 @@ public class CommandInterpreter {
 				    	
 				    //use skill(skill name, on ch)
 					case 6:
+						switch(skill){
+						
+						case "fireball":
+							game.
+						
+						}
+						
 						//game.getBattleManager().applySkill(game.getPlayer(),  (CCharacter) game.getBattleManager().getCharacterList().get(index), );
 						break;
 						
