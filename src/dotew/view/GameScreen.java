@@ -26,7 +26,7 @@ import dotew.controller.GameEngine;
 public class GameScreen extends JPanel {
 	JTextArea txtBoxConsole;
 	JTextField txtBoxCommand;
-	JPanel multiPurpose;
+	MultiPurposePanel multiPurpose;
 	JButton btnEnter;
 	
 
@@ -44,18 +44,11 @@ public class GameScreen extends JPanel {
 		txtBoxConsole.setPreferredSize(new Dimension(550, 550));
 		txtBoxCommand = new JTextField();
 		txtBoxCommand.setPreferredSize(new Dimension(1000, 100));
-		multiPurpose = new JPanel(new FlowLayout(FlowLayout.TRAILING));
-		multiPurpose.setPreferredSize(new Dimension(550, 550));
-		GameEngine gameEngine = GameEngine.getInstance();
-		JLabel lblCell;
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				lblCell = new JLabel();
-				//lblCell.add(gameEngine.getMapManager().getCurrentMap().getTerrainCellList()[i][j]);
-				multiPurpose.add(lblCell);
-			}
-			
-		}
+		GameEngine gameEngine = GameEngine.getInstance(true, this.getTxtBoxConsole(), this.getTxtBoxCommand());
+		
+		multiPurpose = new MultiPurposePanel(gameEngine.getMapManager().getCurrentMap().getTerrainCellList());
+		
+		
 		
 		btnEnter = new JButton("Enter");
 		btnEnter.setPreferredSize(new Dimension(150, 50));
@@ -109,13 +102,19 @@ public class GameScreen extends JPanel {
 		this.txtBoxCommand = txtBoxCommand;
 	}
 
-	public JPanel getMultiPurpose() {
+
+
+	public MultiPurposePanel getMultiPurpose() {
 		return multiPurpose;
 	}
 
-	public void setMultiPurpose(JPanel multiPurpose) {
+
+
+	public void setMultiPurpose(MultiPurposePanel multiPurpose) {
 		this.multiPurpose = multiPurpose;
 	}
+
+	
 
 	
 

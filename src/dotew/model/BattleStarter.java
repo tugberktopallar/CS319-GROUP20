@@ -11,6 +11,7 @@ public class BattleStarter extends GameObject{
 	public BattleStarter(){
 		super();
 		this.setType("battlestarter");
+		this.setIconName("OgreTexture.png");
 		this.makeInteractible();
 	}
 	/*public BattleMap startBattle(Player p1){

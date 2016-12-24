@@ -43,7 +43,8 @@ public class MainMenu extends JPanel {
 		
 		
 		this.setLayout(layoutMain);
-		this.setSize(new Dimension(1280,720));
+		this.setSize(new Dimension(736,542));
+		this.setPreferredSize(new Dimension(736,542));
 		
 		
 		
@@ -95,8 +96,8 @@ public class MainMenu extends JPanel {
 		//add Buttons
 		GridBagConstraints gbcBtn = new GridBagConstraints();
 		gbcBtn.fill = GridBagConstraints.NONE;
-		gbcBtn.gridheight = 1;
-		gbcBtn.gridwidth = 3;
+//		gbcBtn.gridheight = 1;
+//		gbcBtn.gridwidth = 3;
 		gbcBtn.gridx = GridBagConstraints.CENTER;
 		gbcBtn.insets = new Insets(150, 0, 8, 0);
 		lblLogo.add(btnNewGame,gbcBtn);

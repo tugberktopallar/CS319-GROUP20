@@ -4,7 +4,8 @@ public class GameObject {
 	//Designdaki "name " = type oldu
 	//type of the object indicates whether it is npc,enemy,battlestarter,or simply a character.
 	private String type;
-	private Image Icon;
+	private String iconName;
+	
 	private String name;
 	private TerrainCell tCell;
 	private boolean interactiveness;
@@ -26,12 +27,13 @@ public class GameObject {
 	public void setType(String type){
 		this.type = type;
 	}
-	public Image getIcon() {
-		return Icon;
+	public String getIconName() {
+		return iconName;
 	}
-	public void setIcon(Image icon) {
-		Icon = icon;
+	public void setIconName(String iconName) {
+		this.iconName = iconName;
 	}
+
 	public String getName() {
 		return name;
 	}

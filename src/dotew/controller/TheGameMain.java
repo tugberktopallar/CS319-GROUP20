@@ -42,7 +42,7 @@ public class TheGameMain {
 		
 		GameScreen theGameScreen = new GameScreen();
 		addListenersTochrSelect(cardContainer, chrSelectionScreen, theGameScreen);
-		
+		gameEngine = GameEngine.getInstance();//(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
 		
 		cardContainer.add(mainMenu, "MainMenu");
 		cardContainer.add(chrSelectionScreen,"CharacterSelect");
@@ -73,9 +73,10 @@ public class TheGameMain {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("warrior");
-				gameEngine = GameEngine.getInstance(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
+				//gameEngine = GameEngine.getInstance(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
 				player = gameEngine.getPlayer();
-				//player.setClassOfCharacter(new ClassGame("Warrior"));
+				player.setClassOfCharacter(new ClassGame("Warrior"));
+				player.setIconName("WarriorTexture.png");
 				((CardLayout)parent.getLayout()).show(parent, "TheGameScreen");
 				
 			}
@@ -86,9 +87,10 @@ public class TheGameMain {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Rogue");
-				gameEngine = GameEngine.getInstance(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
+				//gameEngine = GameEngine.getInstance(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
 				player = gameEngine.getPlayer();
-				//player.setClassOfCharacter(new ClassGame("Rogue"));
+				player.setClassOfCharacter(new ClassGame("Rogue"));
+				player.setIconName("RogueTexture.png");
 				((CardLayout)parent.getLayout()).show(parent, "TheGameScreen");
 				
 			}
@@ -99,9 +101,10 @@ public class TheGameMain {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Mage");
-				gameEngine = GameEngine.getInstance(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
+				//gameEngine = GameEngine.getInstance(true, theGameScreen.getTxtBoxConsole(), theGameScreen.getTxtBoxCommand());
 				player = gameEngine.getPlayer();
-				//player.setClassOfCharacter(new ClassGame("Mage"));
+				player.setClassOfCharacter(new ClassGame("Mage"));
+				player.setIconName("MageTexture.png");
 				((CardLayout)parent.getLayout()).show(parent, "TheGameScreen");
 				
 			}
@@ -115,6 +118,7 @@ public class TheGameMain {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				((CardLayout)parent.getLayout()).show(parent, "CharacterSelect");
 				
 			}

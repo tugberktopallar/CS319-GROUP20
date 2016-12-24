@@ -19,6 +19,7 @@ public class Player extends CCharacter{
 		super();
 		//TODO: Class'i parametre alsak sonra onu set etsek ona göre startUp() methodu çaðýrsak?
 		//this.makeInteractible();
+		this.setIconName("WarriorTexture.png");
 		inventory = new Inventory();
 		level=1;
 		expPoints = 0;

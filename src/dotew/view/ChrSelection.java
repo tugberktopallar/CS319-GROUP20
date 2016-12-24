@@ -31,8 +31,8 @@ public class ChrSelection extends JPanel {
 		GridBagLayout layoutMain = new GridBagLayout();
 		GridBagConstraints gbcBtn = new GridBagConstraints();
 		gbcBtn.fill = GridBagConstraints.NONE;
-		gbcBtn.gridheight = 1;
-		gbcBtn.gridwidth = 3;
+//		gbcBtn.gridheight = 1;
+//		gbcBtn.gridwidth = 3;
 		
 		
 		

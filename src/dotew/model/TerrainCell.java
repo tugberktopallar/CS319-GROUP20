@@ -18,10 +18,11 @@ public class TerrainCell {
 		this.iconName = iconName;
 	}
 
-	TerrainCell(boolean isBlocked, GameObject gameObject, Point position){
+	public TerrainCell(boolean isBlocked, GameObject gameObject, Point position){
 		this.isBlocked = isBlocked;
 		this.gameObject = gameObject;
 		this.position = position;
+		this.iconName = "GrassTexture.jpg";
 	}
 
 	//getset
