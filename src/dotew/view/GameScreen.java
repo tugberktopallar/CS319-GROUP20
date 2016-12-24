@@ -16,6 +16,7 @@ import java.awt.image.ImageObserver;
 import java.text.AttributedCharacterIterator;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -46,7 +47,15 @@ public class GameScreen extends JPanel {
 		multiPurpose = new JPanel(new FlowLayout(FlowLayout.TRAILING));
 		multiPurpose.setPreferredSize(new Dimension(550, 550));
 		GameEngine gameEngine = GameEngine.getInstance();
-		   
+		JLabel lblCell;
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				lblCell = new JLabel();
+				//lblCell.add(gameEngine.getMapManager().getCurrentMap().getTerrainCellList()[i][j]);
+				multiPurpose.add(lblCell);
+			}
+			
+		}
 		
 		btnEnter = new JButton("Enter");
 		btnEnter.setPreferredSize(new Dimension(150, 50));

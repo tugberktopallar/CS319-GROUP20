@@ -39,13 +39,13 @@ public class ChrSelection extends JPanel {
 		this.setLayout(layoutMain);
 		this.setSize(new Dimension(1280,720));
 		
-		ImageIcon img = new ImageIcon(new Dummy().getClass().getResource("WarriorClass.jpg"));
+		ImageIcon img = new ImageIcon(new Dummy().getClass().getResource("WarriorClass.png"));
 		imgWarrior = new JLabel(img);
 		imgWarrior.setPreferredSize(new Dimension(450, 550));
 		img = new ImageIcon(new Dummy().getClass().getResource("RogueClass.png"));
 		imgRogue = new JLabel(img);
 		imgRogue.setPreferredSize(new Dimension(450, 550));
-		img = new ImageIcon(new Dummy().getClass().getResource("MageClass.jpg"));
+		img = new ImageIcon(new Dummy().getClass().getResource("MageClass.png"));
 		imgMage = new JLabel(img);
 		imgMage.setPreferredSize(new Dimension(450, 550));
 		

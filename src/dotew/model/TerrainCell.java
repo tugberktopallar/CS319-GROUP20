@@ -2,11 +2,22 @@ package dotew.model;
 
 import java.awt.Point;
 
+import javax.swing.JPanel;
+
 public class TerrainCell {
 	private boolean isBlocked;
 	private GameObject gameObject;
 	private Point position;
+	private String iconName;
 	
+	public String getIconName() {
+		return iconName;
+	}
+
+	public void setIconName(String iconName) {
+		this.iconName = iconName;
+	}
+
 	TerrainCell(boolean isBlocked, GameObject gameObject, Point position){
 		this.isBlocked = isBlocked;
 		this.gameObject = gameObject;
@@ -41,8 +52,8 @@ public class TerrainCell {
 		this.position = position;
 	}
 	
-	public void draw(){
-		//GUI implementation
+	public void draw(JPanel panel){
+		//panel.getGraphics().drawI
 	}
 	
 	public boolean isBlocked(){

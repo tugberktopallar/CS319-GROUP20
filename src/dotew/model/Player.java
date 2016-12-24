@@ -25,9 +25,9 @@ public class Player extends CCharacter{
 		equipments = new ArrayList<Item>();
 		
 		unfinishedQuests = new ArrayList<Quest>();
-		for(Quest q : GameEngine.getInstance().getQuestManager().getAllQuestsInTheGame()){
-			unfinishedQuests.add(q);
-		}
+//		for(Quest q : GameEngine.getInstance().getQuestManager().getAllQuestsInTheGame()){
+//			unfinishedQuests.add(q);
+//		}
 		
 		activeQuests = new ArrayList<Quest>();
 		finishedQuests = new ArrayList<Quest>();

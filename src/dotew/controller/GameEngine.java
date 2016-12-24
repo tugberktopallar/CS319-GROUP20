@@ -29,7 +29,7 @@ public class GameEngine {
 
 	private GameEngine(boolean newGame, JTextArea textBoxConsole, JTextField textBoxCommand) {
 		if(newGame){
-			this.player = Player.getInstance();
+			
 			this.zoneList = new ArrayList<Zone>();
 			// Zone list eklenecek
 			this.currentZone = null; //this.zoneList.get(0);
@@ -40,6 +40,7 @@ public class GameEngine {
 			this.collisionHandler = new CollisionHandler();
 			this.battleManager = null;
 			this.consoleResponder = new ConsoleResponder(textBoxConsole);
+			this.player = Player.getInstance();
 			
 			
 		}

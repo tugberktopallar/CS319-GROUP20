@@ -21,7 +21,12 @@ public class QuestManager {
 	}
 	
 	public QuestManager() {
-		// TODO Auto-generated constructor stub
+		this.totalQuests = 1;
+		this.totalQuestsFinished = 0;
+		this.currentQuest = null;
+		this.ongoingQuests = null;
+		this.allQuestsInTheGame = new Quest[1];
+		this.allQuestsInTheGame[0] = new Quest();
 	}
 
 	

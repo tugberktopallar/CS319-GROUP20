@@ -1,5 +1,7 @@
 package dotew.controller;
 
+import javax.swing.JPanel;
+
 import dotew.model.BattleMap;
 import dotew.model.CCharacter;
 import dotew.model.Map;
@@ -60,7 +62,7 @@ public class MapManager {
 		}	
 	}
 	
-	public void drawMap(){
+	public void drawMap(JPanel panel){
 		//TODO
 	}
 	

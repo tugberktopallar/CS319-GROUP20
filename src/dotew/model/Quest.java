@@ -14,6 +14,9 @@ public class Quest {
 		this.rewardExp = rewardExp;
 		
 	}
+	public Quest() {
+		// TODO Auto-generated constructor stub
+	}
 	//
 	public void switchGoal(){
 		if(goals.indexOf(currentGoal)!= (goals.size()-1)){
