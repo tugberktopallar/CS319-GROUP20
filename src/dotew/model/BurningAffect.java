@@ -29,7 +29,7 @@ public class BurningAffect extends TemporaryEffect {
 	 *  if the effect is applied its duration will be initialized with 3 in terms of turns.
 	 *  so we decrease the health of the character by 10 each turn.
 	 */
-	 */
+	 
 	@Override
 	boolean applyEffect(CCharacter c1) {
 		c1.increaseOrDecreaseHealth(-10);

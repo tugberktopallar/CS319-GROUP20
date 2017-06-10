@@ -11,6 +11,7 @@ public class Armor extends WearableItem {
 	 * 
 	 */
 	private int baseStrength;
+	private int deneme;
 	//TODO: baseStrength'i kullanmadýk daha.
 	/**
 	 * 
